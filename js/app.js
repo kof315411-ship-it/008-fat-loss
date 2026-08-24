@@ -139,6 +139,20 @@ function bindEvents() {
     });
   }
 
+  // 飲食目標快捷按鈕點擊（增肌、減脂、低糖、低脂、少鹽、減鈉）
+  document.querySelectorAll(".diet-goal-pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const goal = btn.dataset.goal;
+      DOM.searchInput.value = goal;
+      AppState.searchQuery = goal;
+      DOM.searchClearBtn.classList.remove("hidden");
+      AppState.selectedPills.clear();
+      updatePillVisuals();
+      renderRecipes();
+      showToast(`已為您篩選「${btn.textContent.trim()}」相關食譜`, "info");
+    });
+  });
+
   // 分類標籤切換
   DOM.categoryTabs.forEach(tab => {
     tab.addEventListener("click", () => {
