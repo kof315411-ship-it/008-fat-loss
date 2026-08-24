@@ -6,7 +6,9 @@
 const AppState = {
   activeTab: "all",
   searchQuery: "",
+  excludeQuery: "",
   selectedPills: new Set(),
+  selectedExcludePills: new Set(),
   maxCalories: 500,
   maxTime: 60,
   sortBy: "match", // match, calories-asc, protein-desc, time-asc
@@ -19,6 +21,9 @@ const AppState = {
 const DOM = {
   searchInput: null,
   searchClearBtn: null,
+  excludeInput: null,
+  excludeClearBtn: null,
+  excludeStatusTag: null,
   popularPillsContainer: null,
   recipesGrid: null,
   emptyState: null,
@@ -51,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function initDOMReferences() {
   DOM.searchInput = document.getElementById("ingredient-search");
   DOM.searchClearBtn = document.getElementById("search-clear-btn");
+  DOM.excludeInput = document.getElementById("exclude-search");
+  DOM.excludeClearBtn = document.getElementById("exclude-clear-btn");
+  DOM.excludeStatusTag = document.getElementById("exclude-status-tag");
   DOM.popularPillsContainer = document.getElementById("popular-pills");
   DOM.recipesGrid = document.getElementById("recipes-grid");
   DOM.emptyState = document.getElementById("empty-state");
@@ -71,14 +79,14 @@ function initDOMReferences() {
 
 // 綁定事件監聽
 function bindEvents() {
-  // 搜尋輸入
+  // 想要食材搜尋輸入
   DOM.searchInput.addEventListener("input", (e) => {
     AppState.searchQuery = e.target.value.trim();
     DOM.searchClearBtn.classList.toggle("hidden", !AppState.searchQuery);
     renderRecipes();
   });
 
-  // 清除搜尋按鈕
+  // 清除想要食材搜尋按鈕
   DOM.searchClearBtn.addEventListener("click", () => {
     DOM.searchInput.value = "";
     AppState.searchQuery = "";
@@ -87,6 +95,49 @@ function bindEvents() {
     updatePillVisuals();
     renderRecipes();
   });
+
+  // 避開食材搜尋輸入
+  if (DOM.excludeInput) {
+    DOM.excludeInput.addEventListener("input", (e) => {
+      AppState.excludeQuery = e.target.value.trim();
+      const hasExclude = AppState.excludeQuery.length > 0;
+      DOM.excludeClearBtn.classList.toggle("hidden", !hasExclude);
+      DOM.excludeStatusTag.classList.toggle("hidden", !hasExclude);
+      renderRecipes();
+    });
+
+    // 清除避開食材按鈕
+    DOM.excludeClearBtn.addEventListener("click", () => {
+      DOM.excludeInput.value = "";
+      AppState.excludeQuery = "";
+      DOM.excludeClearBtn.classList.add("hidden");
+      DOM.excludeStatusTag.classList.add("hidden");
+      AppState.selectedExcludePills.clear();
+      updateExcludePillVisuals();
+      renderRecipes();
+    });
+
+    // 快捷避開標籤按鈕
+    document.querySelectorAll(".exclude-quick-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.dataset.exclude;
+        if (AppState.selectedExcludePills.has(item)) {
+          AppState.selectedExcludePills.delete(item);
+        } else {
+          AppState.selectedExcludePills.add(item);
+        }
+
+        DOM.excludeInput.value = Array.from(AppState.selectedExcludePills).join(" ");
+        AppState.excludeQuery = DOM.excludeInput.value;
+        const hasExclude = AppState.excludeQuery.length > 0;
+        DOM.excludeClearBtn.classList.toggle("hidden", !hasExclude);
+        DOM.excludeStatusTag.classList.toggle("hidden", !hasExclude);
+
+        updateExcludePillVisuals();
+        renderRecipes();
+      });
+    });
+  }
 
   // 分類標籤切換
   DOM.categoryTabs.forEach(tab => {
@@ -191,7 +242,7 @@ function renderPopularPills() {
   });
 }
 
-// 更新標籤外觀選取狀態
+// 更新想要食材標籤外觀選取狀態
 function updatePillVisuals() {
   DOM.popularPillsContainer.querySelectorAll(".ingredient-pill").forEach(btn => {
     const isSelected = AppState.selectedPills.has(btn.dataset.ingredient);
@@ -204,9 +255,22 @@ function updatePillVisuals() {
   });
 }
 
+// 更新避開食材快捷標籤外觀選取狀態
+function updateExcludePillVisuals() {
+  document.querySelectorAll(".exclude-quick-pill").forEach(btn => {
+    const isSelected = AppState.selectedExcludePills.has(btn.dataset.exclude);
+    btn.classList.toggle("bg-rose-600", isSelected);
+    btn.classList.toggle("text-white", isSelected);
+    btn.classList.toggle("border-rose-500", isSelected);
+    btn.classList.toggle("bg-black/30", !isSelected);
+    btn.classList.toggle("text-stone-200", !isSelected);
+    btn.classList.toggle("border-white/10", !isSelected);
+  });
+}
+
 // 搜尋關鍵字拆解與同義詞擴展
 function extractSearchKeywords(query) {
-  if (!query) return [];
+  if (!query) return { rawKeywords: [], expandedList: [] };
   // 支援空白、逗號、加號、頓號分割
   const rawKeywords = query
     .toLowerCase()
@@ -295,6 +359,7 @@ function calculateRecipeMatch(recipe, searchData) {
 function getFilteredAndSortedRecipes() {
   const allRecipes = StorageManager.getAllRecipes();
   const searchData = extractSearchKeywords(AppState.searchQuery);
+  const excludeData = extractSearchKeywords(AppState.excludeQuery);
   const favorites = StorageManager.getFavorites();
 
   // 1. 篩選
@@ -322,7 +387,19 @@ function getFilteredAndSortedRecipes() {
       return false;
     }
 
-    // 關鍵字搜尋過濾：若有輸入關鍵字，必須至少命中 1 個食材/標題/標籤
+    // 🚫 避開食材過濾：若包含任何排除關鍵字或其同義詞，一律過濾剔除！
+    if (excludeData.rawKeywords.length > 0) {
+      const isExcluded = recipe.ingredients.some(ing => {
+        const name = ing.name.toLowerCase();
+        return excludeData.expandedList.some(exKw => name.includes(exKw) || exKw.includes(name));
+      }) || excludeData.expandedList.some(exKw => recipe.title.toLowerCase().includes(exKw)) || recipe.tags.some(t => excludeData.expandedList.some(exKw => t.toLowerCase().includes(exKw)));
+
+      if (isExcluded) {
+        return false;
+      }
+    }
+
+    // 關鍵字搜尋過濾：若有輸入想要關鍵字，必須至少命中 1 個食材/標題/標籤
     if (searchData.rawKeywords.length > 0) {
       const match = calculateRecipeMatch(recipe, searchData);
       const titleHit = searchData.expandedList.some(k => recipe.title.toLowerCase().includes(k));
@@ -369,7 +446,12 @@ function getFilteredAndSortedRecipes() {
 // 渲染食譜卡片清單
 function renderRecipes() {
   const recipes = getFilteredAndSortedRecipes();
-  DOM.resultsCount.textContent = `共 ${recipes.length} 道料理`;
+  const hasExclude = AppState.excludeQuery.length > 0;
+  
+  DOM.resultsCount.innerHTML = `
+    共 <span class="text-emerald-700">${recipes.length}</span> 道料理
+    ${hasExclude ? `<span class="text-[11px] text-rose-500 font-normal ml-1">(已避開「${AppState.excludeQuery}」)</span>` : ""}
+  `;
 
   if (recipes.length === 0) {
     DOM.recipesGrid.innerHTML = "";
