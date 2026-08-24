@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>減脂餐智庫 | 食材智慧配菜與減醣高蛋白食譜庫</title>
+  <meta name="description" content="收集各網站精選減脂餐，輸入手邊現有食材關鍵字，智慧匹配健康低卡、高蛋白減脂料理！" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col selection:bg-emerald-200 selection:text-emerald-900">
+
+  <!-- 頂部導航列 -->
+  <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- 網站標誌 -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition">
+          <i data-lucide="salad" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="text-base sm:text-lg font-black tracking-tight text-stone-900 flex items-center gap-1">
+            減脂餐智庫
+            <span class="text-[11px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 hidden sm:inline-block">Food Match</span>
+          </span>
+          <span class="text-[11px] text-stone-400 block -mt-1">冰箱食材智慧配菜</span>
+        </div>
+      </a>
+
+      <!-- 右側捷徑操作 -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- 採買清單按鈕 -->
+        <button 
+          id="open-shopping-btn" 
+          class="relative flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-emerald-50 hover:text-emerald-700 text-stone-700 transition cursor-pointer"
+        >
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-emerald-600"></i>
+          <span class="hidden sm:inline">採買清單</span>
+          <span id="shopping-badge" class="hidden absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center border-2 border-white">
+            0
+          </span>
+        </button>
+
+        <!-- 新增自訂食譜按鈕 -->
+        <button 
+          id="open-add-recipe-btn" 
+          class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-600/30 transition cursor-pointer"
+        >
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>新增私房食譜</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 主內容區 -->
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
+    
+    <!-- Hero 搜尋橫幅 -->
+    <section class="relative rounded-3xl bg-gradient-to-br from-emerald-900 via-teal-900 to-stone-900 text-white p-6 sm:p-10 overflow-hidden shadow-xl">
+      <!-- 裝飾光影 -->
+      <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-emerald-500/20 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-teal-500/20 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 backdrop-blur-md border border-white/15 text-emerald-300 mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>收集各網站健康減脂料理庫</span>
+        </div>
+        
+        <h1 class="text-2xl sm:text-4xl font-black leading-tight sm:leading-snug mb-3">
+          輸入準備好的食材<br class="hidden sm:block" />
+          <span class="text-emerald-400">秒出高蛋白、低卡減脂料理</span>
+        </h1>
+        <p class="text-stone-300 text-xs sm:text-sm mb-6 max-w-xl">
+          不需精確名稱！輸入「雞肉 蛋 菇」或「番茄 豆腐」，系統即時模糊匹配手邊食材，推薦最適合的減脂菜單。
+        </p>
+
+        <!-- 搜尋列 -->
+        <div class="relative max-w-2xl">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-stone-400">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </div>
+          <input 
+            type="text" 
+            id="ingredient-search" 
+            placeholder="輸入食材關鍵字，例如：雞胸肉 蛋 菇 或 豆腐 番茄 蝦仁..." 
+            class="w-full pl-11 pr-12 py-3.5 sm:py-4 rounded-2xl bg-white text-stone-900 placeholder:text-stone-400 text-sm sm:text-base font-medium shadow-lg border-2 border-transparent focus:border-emerald-400 focus:outline-none transition"
+          />
+          <button 
+            id="search-clear-btn" 
+            class="hidden absolute inset-y-0 right-0 pr-4 flex items-center text-stone-400 hover:text-stone-600 transition cursor-pointer"
+            title="清空"
+          >
+            <i data-lucide="x-circle" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- 熱門食材快選標籤 -->
+        <div class="mt-4 pt-3 border-t border-white/10">
+          <div class="text-xs text-stone-300 mb-2 flex items-center gap-1.5 font-medium">
+            <i data-lucide="tag" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>手邊有這些？點擊快速加入搜尋：</span>
+          </div>
+          <div id="popular-pills" class="flex flex-wrap gap-2">
+            <!-- 由 JS 動態渲染 -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 分類標籤導航 -->
+    <section class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+      <button class="category-tab active-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 text-white transition shadow-sm cursor-pointer whitespace-nowrap" data-category="all">
+        全部食譜
+      </button>
+      <button class="category-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition cursor-pointer whitespace-nowrap" data-category="high-protein">
+        🍗 高蛋白肌力
+      </button>
+      <button class="category-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition cursor-pointer whitespace-nowrap" data-category="low-carb">
+        🥗 極低碳減醣
+      </button>
+      <button class="category-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition cursor-pointer whitespace-nowrap" data-category="soups">
+        🍲 低卡暖胃湯
+      </button>
+      <button class="category-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition cursor-pointer whitespace-nowrap" data-category="quick-meal">
+        ⚡ 15分鐘即食
+      </button>
+      <button class="category-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition cursor-pointer whitespace-nowrap flex items-center gap-1" data-category="favorites">
+        <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500"></i>
+        <span>我的收藏</span>
+      </button>
+      <button class="category-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-stone-100 hover:bg-stone-200 text-stone-700 transition cursor-pointer whitespace-nowrap flex items-center gap-1" data-category="custom">
+        <i data-lucide="chef-hat" class="w-3.5 h-3.5 text-amber-500"></i>
+        <span>我的私房</span>
+      </button>
+    </section>
+
+    <!-- 篩選與排序控制列 -->
+    <section class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-soft flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm text-stone-600">
+      
+      <!-- 熱量與烹調時間滑桿 -->
+      <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+        <!-- 熱量上限 -->
+        <div class="flex items-center gap-2">
+          <span class="font-medium text-stone-700 flex items-center gap-1">
+            <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i>
+            熱量上限:
+          </span>
+          <input 
+            type="range" 
+            id="calorie-slider" 
+            min="150" 
+            max="500" 
+            step="20" 
+            value="500" 
+            class="w-24 sm:w-32 h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer"
+          />
+          <span id="calorie-value" class="font-bold text-emerald-700 min-w-[65px]">不限</span>
+        </div>
+
+        <!-- 烹調時間 -->
+        <div class="flex items-center gap-2">
+          <span class="font-medium text-stone-700 flex items-center gap-1">
+            <i data-lucide="clock" class="w-4 h-4 text-stone-400"></i>
+            時間:
+          </span>
+          <select id="time-select" class="bg-stone-50 border border-stone-200 rounded-lg px-2.5 py-1 text-xs focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+            <option value="60">不限時間</option>
+            <option value="15">⚡ 15 分鐘內</option>
+            <option value="25">⏱️ 25 分鐘內</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 排序選單與統計筆數 -->
+      <div class="flex items-center gap-3 ml-auto">
+        <span id="results-count" class="text-xs font-bold text-stone-500">
+          共 0 道料理
+        </span>
+        <div class="flex items-center gap-1.5">
+          <span class="font-medium text-stone-700">排序:</span>
+          <select id="sort-select" class="bg-stone-50 border border-stone-200 rounded-lg px-2.5 py-1 text-xs font-medium focus:ring-1 focus:ring-emerald-500 focus:outline-none">
+            <option value="match">🎯 食材吻合度最高</option>
+            <option value="calories-asc">🔥 熱量由低至高</option>
+            <option value="protein-desc">💪 蛋白質由高至低</option>
+            <option value="time-asc">⏱️ 烹調時間最短</option>
+          </select>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 食譜卡片網格 -->
+    <section>
+      <div id="recipes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+        <!-- 由 JS 動態渲染食譜卡片 -->
+      </div>
+
+      <!-- 查無結果空狀態 -->
+      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-stone-300 p-8">
+        <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="search-x" class="w-8 h-8"></i>
+        </div>
+        <h3 class="text-lg font-bold text-stone-800 mb-1">找不到吻合的減脂料理</h3>
+        <p class="text-sm text-stone-500 max-w-md mx-auto mb-6">
+          試著減少搜尋食材關鍵字（例如只輸入「雞肉」或「豆腐」），或調整熱量/時間篩選條件。
+        </p>
+        <button 
+          onclick="DOM.searchInput.value=''; AppState.searchQuery=''; AppState.selectedPills.clear(); updatePillVisuals(); renderRecipes();" 
+          class="px-5 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 transition cursor-pointer"
+        >
+          重設所有搜尋條件
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="bg-white border-t border-stone-200 mt-12 py-8 text-center text-xs text-stone-500 space-y-2">
+    <div class="flex items-center justify-center gap-1 font-medium text-stone-700">
+      <i data-lucide="heart" class="w-4 h-4 text-rose-500 fill-rose-500"></i>
+      <span>減脂餐食材智慧配菜智庫 · 輕鬆享瘦健康生活</span>
+    </div>
+    <p class="text-stone-400">
+      食譜資料整合自愛料理、Cookpad、楊桃美食網等健康食譜公開資料，數值僅供參考。
+    </p>
+  </footer>
+
+  <!-- 食譜詳情彈窗 (Modal) -->
+  <div id="recipe-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div id="recipe-modal-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+    
+    <div class="flex min-h-full items-center justify-center p-3 sm:p-4 text-center">
+      <div class="animate-modal relative w-full max-w-2xl rounded-3xl bg-white text-left shadow-2xl overflow-hidden border border-stone-200 my-8">
+        <!-- 關閉按鈕 -->
+        <button 
+          id="close-recipe-modal-btn" 
+          class="absolute top-4 left-4 z-20 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 backdrop-blur-md transition cursor-pointer"
+          title="關閉"
+        >
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <!-- 彈窗內容動態渲染區 -->
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新增私房食譜彈窗 (Add Recipe Modal) -->
+  <div id="add-recipe-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div id="add-recipe-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+
+    <div class="flex min-h-full items-center justify-center p-3 sm:p-4 text-center">
+      <div class="animate-modal relative w-full max-w-lg rounded-3xl bg-white text-left shadow-2xl overflow-hidden border border-stone-200 p-6 sm:p-7 my-8">
+        
+        <div class="flex items-center justify-between mb-5 border-b border-stone-100 pb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <i data-lucide="chef-hat" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-black text-stone-900">新增我的私房減脂食譜</h3>
+          </div>
+          <button id="close-add-modal-btn" class="text-stone-400 hover:text-stone-600 p-1 cursor-pointer">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <form id="add-recipe-form" class="space-y-4 text-xs sm:text-sm">
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">食譜名稱 *</label>
+            <input type="text" id="new-title" required placeholder="例如：蒜香黑椒嫩煎牛里肌" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:border-emerald-500 focus:outline-none" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">料理分類</label>
+              <select id="new-category" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 focus:border-emerald-500 focus:outline-none bg-white">
+                <option value="high-protein">🍗 高蛋白肌力</option>
+                <option value="low-carb">🥗 極低碳減醣</option>
+                <option value="soups">🍲 低卡暖胃湯</option>
+                <option value="quick-meal">⚡ 超快即食</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-stone-700 mb-1">烹調時間 (分鐘)</label>
+              <input type="number" id="new-time" value="15" min="1" max="180" class="w-full px-3 py-2 rounded-xl border border-stone-300 focus:border-emerald-500 focus:outline-none" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-4 gap-2">
+            <div>
+              <label class="block text-[11px] font-bold text-stone-600 mb-1">熱量 (kcal)</label>
+              <input type="number" id="new-calories" value="280" class="w-full px-2 py-1.5 rounded-lg border border-stone-300 focus:outline-none text-center" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-stone-600 mb-1">蛋白質 (g)</label>
+              <input type="number" id="new-protein" value="30" class="w-full px-2 py-1.5 rounded-lg border border-stone-300 focus:outline-none text-center" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-stone-600 mb-1">脂肪 (g)</label>
+              <input type="number" id="new-fat" value="8" class="w-full px-2 py-1.5 rounded-lg border border-stone-300 focus:outline-none text-center" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-stone-600 mb-1">碳水 (g)</label>
+              <input type="number" id="new-carbs" value="12" class="w-full px-2 py-1.5 rounded-lg border border-stone-300 focus:outline-none text-center" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">所需食材 (每行一種或逗號分隔) *</label>
+            <textarea id="new-ingredients" rows="3" required placeholder="雞胸肉 200g&#10;花椰菜 100g&#10;蒜頭 2瓣" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:border-emerald-500 focus:outline-none font-mono"></textarea>
+          </div>
+
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">料理步驟 (每行一步驟)</label>
+            <textarea id="new-steps" rows="3" placeholder="1. 雞胸肉吸乾水分切塊。&#10;2. 熱鍋薄油翻煎至金黃熟透即可。" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:border-emerald-500 focus:outline-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block font-bold text-stone-700 mb-1">圖片網址 (選填，留空將自動帶入預設美食圖)</label>
+            <input type="url" id="new-image" placeholder="https://..." class="w-full px-3.5 py-2 rounded-xl border border-stone-300 focus:border-emerald-500 focus:outline-none" />
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 transition cursor-pointer shadow-md shadow-emerald-600/20">
+              儲存至我的私房食譜庫
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 採買清單右側抽屜 (Shopping Drawer) -->
+  <div id="shopping-drawer" class="hidden fixed inset-0 z-50 overflow-hidden">
+    <div id="shopping-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+        
+        <!-- 抽屜頂部 -->
+        <div class="p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-black text-stone-900 text-base">減脂食材採買清單</h3>
+              <p class="text-[11px] text-stone-500">勾選已買好的食材</p>
+            </div>
+          </div>
+          <button id="close-shopping-btn" class="p-2 text-stone-400 hover:text-stone-600 rounded-lg cursor-pointer">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- 採買項目列表 -->
+        <div id="shopping-list-items" class="flex-1 overflow-y-auto p-4 space-y-2.5">
+          <!-- 由 JS 動態渲染 -->
+        </div>
+
+        <!-- 抽屜底部操作 -->
+        <div class="p-4 border-t border-stone-200 bg-stone-50 space-y-2">
+          <button 
+            id="copy-shopping-btn" 
+            class="w-full py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs sm:text-sm hover:bg-emerald-700 transition flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+          >
+            <i data-lucide="copy" class="w-4 h-4"></i>
+            <span>複製整份採買清單 (LINE / 備忘錄)</span>
+          </button>
+          <button 
+            id="clear-shopping-btn" 
+            class="w-full py-2 rounded-xl text-rose-600 font-semibold text-xs hover:bg-rose-50 transition cursor-pointer"
+          >
+            清空所有採買清單
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 輕量通知 -->
+  <div id="toast" class="hidden fixed bottom-6 right-6 z-50 transition-all duration-300 transform translate-y-4 opacity-0"></div>
+
+  <!-- JavaScript 檔案依賴 -->
+  <script src="js/recipes-data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
