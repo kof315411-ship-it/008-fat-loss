@@ -1,12 +1,342 @@
 /**
- * 減脂餐食譜資料庫 (60+ 道精選健康減脂食譜)
- * 整合愛料理 iCook、Cookpad、楊桃美食網、健身廚房、小紅書減脂精選、日本Kurashiru等各食譜平台
- * 涵蓋各類食材、烹調方式、三大營養素與熱量
+ * 減脂餐食譜資料庫 (精選多國多元健康減脂食譜)
+ * 來源：BBC Good Food、EatingWell、Jamie Oliver、Delish、FitMenCook、Minimalist Baker、日本Kurashiru、愛料理 iCook、Cookpad
+ * 經嚴格去重審核，剔除食材與步驟相似度大於90%之食譜，確保每道料理風味、烹調法與文化特色鮮明獨特！
  */
 const DEFAULT_RECIPES = [
-  // ==================== 【高蛋白肌力增肌減脂】 ====================
+  // ==========================================
+  // 【一、歐美與地中海風情料理】
+  // ==========================================
   {
-    id: "rec-001",
+    id: "rec-intl-001",
+    title: "希臘檸檬香草烤雞佐黃瓜酸奶醬 (Tzatziki)",
+    category: "high-protein",
+    categoryName: "高蛋白肌力",
+    calories: 270,
+    protein: 38,
+    fat: 7,
+    carbs: 9,
+    prepTime: 18,
+    difficulty: "簡單",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
+    source: "BBC Good Food (英國)",
+    sourceUrl: "https://www.bbcgoodfood.com",
+    tags: ["增肌", "減脂", "低糖", "少鹽", "雞胸肉", "無糖希臘優格", "小黃瓜", "檸檬汁", "大蒜", "地中海飲食"],
+    ingredients: [
+      { name: "雞胸肉", amount: "180g (切厚片)", isMain: true },
+      { name: "無糖希臘優格", amount: "60g (製作Tzatziki黃瓜醬)", isMain: true },
+      { name: "小黃瓜", amount: "半條 (磨碎擠乾水分)", isMain: true },
+      { name: "新鮮檸檬汁", amount: "1大匙", isMain: false },
+      { name: "大蒜泥", amount: "1瓣", isMain: false },
+      { name: "乾燥奧勒岡草/蒔蘿", amount: "1/2小匙", isMain: false },
+      { name: "初榨橄欖油", amount: "1/2小匙", isMain: false },
+      { name: "黑胡椒", amount: "少許", isMain: false }
+    ],
+    steps: [
+      "雞胸肉以檸檬汁、奧勒岡草、黑胡椒與微量橄欖油醃漬 10 分鐘。",
+      "將希臘優格、擠乾水分的碎小黃瓜、蒜泥與檸檬汁拌勻成清爽濃郁的希臘經典 Tzatziki 醬。",
+      "熱平底鍋或氣炸鍋（190°C），將雞胸肉煎烤至雙面金黃熟透（約 8-10 分鐘）。",
+      "起鍋切片，佐上冰涼的黃瓜酸奶醬享用，享受地中海高蛋白清爽風味！"
+    ],
+    tips: "希臘優格取代高熱量沙拉醬，蛋白質倍增且富含活性益生菌，乳清酸香與烤雞胸是絕配！"
+  },
+  {
+    id: "rec-intl-002",
+    title: "地中海烤海鱸魚佐刺山柑番茄黑橄欖",
+    category: "high-protein",
+    categoryName: "高蛋白肌力",
+    calories: 230,
+    protein: 34,
+    fat: 7,
+    carbs: 6,
+    prepTime: 15,
+    difficulty: "簡單",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
+    source: "Jamie Oliver 健康專欄 (歐洲)",
+    sourceUrl: "https://www.jamieoliver.com",
+    tags: ["增肌", "減脂", "低糖", "少鹽", "鱸魚", "小番茄", "黑橄欖", "刺山柑", "白酒", "地中海飲食"],
+    ingredients: [
+      { name: "金目鱸魚菲力", amount: "180g", isMain: true },
+      { name: "小番茄", amount: "6顆 (對半切)", isMain: true },
+      { name: "黑橄欖", amount: "4顆 (切圈)", isMain: false },
+      { name: "新鮮羅勒葉", amount: "1小把", isMain: false },
+      { name: "大蒜", amount: "2瓣 (切薄片)", isMain: false },
+      { name: "白酒/米酒", amount: "1大匙", isMain: false },
+      { name: "橄欖油", amount: "1/2小匙", isMain: false }
+    ],
+    steps: [
+      "烤盤底鋪上蒜片、小番茄與黑橄欖圈，淋少許橄欖油。",
+      "將鱸魚菲力魚皮朝上放在番茄蔬菜上方，淋上一大匙白酒提鮮。",
+      "烤箱預熱 200°C 烤 12-14 分鐘至番茄微爆汁、魚肉雪白細嫩。",
+      "出爐灑上新鮮羅勒葉碎，番茄酸甜與黑橄欖天然果香完美融合！"
+    ],
+    tips: "刺山柑與黑橄欖自帶地中海天然鹹香與抗氧化多酚，完全不需額外加精鹽調味！"
+  },
+  {
+    id: "rec-intl-003",
+    title: "法式第戎芥末籽慢烤鮭魚佐球芽甘藍",
+    category: "high-protein",
+    categoryName: "高蛋白肌力",
+    calories: 330,
+    protein: 35,
+    fat: 17,
+    carbs: 8,
+    prepTime: 20,
+    difficulty: "簡單",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80",
+    source: "EatingWell (美國)",
+    sourceUrl: "https://www.eatingwell.com",
+    tags: ["增肌", "減脂", "低糖", "少鹽", "鮭魚", "球芽甘藍", "抱子甘藍", "第戎芥末醬", "迷迭香", "Omega3"],
+    ingredients: [
+      { name: "生鮮鮭魚菲力", amount: "150g", isMain: true },
+      { name: "球芽甘藍/抱子甘藍", amount: "80g (對半切)", isMain: true },
+      { name: "法式第戎芥末籽醬", amount: "1大匙", isMain: false },
+      { name: "檸檬汁", amount: "1小匙", isMain: false },
+      { name: "現磨粗黑胡椒", amount: "1/2小匙", isMain: false },
+      { name: "蒜粉", amount: "少許", isMain: false }
+    ],
+    steps: [
+      "將第戎芥末籽醬、檸檬汁、蒜粉與黑胡椒調勻，厚厚塗抹在鮭魚菲力頂部。",
+      "球芽甘藍切面朝下鋪在烤盤邊緣，中心放入厚切鮭魚排。",
+      "氣炸鍋或烤箱 180°C 烤 14-16 分鐘至甘藍邊緣微焦脆、鮭魚油脂滋滋作響。",
+      "起鍋享受芥末籽微辛甘甜與鮭魚肥美 Omega-3 的法式盛宴。"
+    ],
+    tips: "球芽甘藍富含硫代葡萄糖苷與維生素K，與鮭魚健康油脂一同烘烤能倍增脂溶性營養素吸收！"
+  },
+  {
+    id: "rec-intl-004",
+    title: "西班牙蒜香紅椒低油白蝦熱鐵板 (Gambas al Ajillo)",
+    category: "quick-meal",
+    categoryName: "超快即食",
+    calories: 190,
+    protein: 28,
+    fat: 6,
+    carbs: 4,
+    prepTime: 8,
+    difficulty: "極簡易",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80",
+    source: "Serious Eats (美國)",
+    sourceUrl: "https://www.seriouseats.com",
+    tags: ["減脂", "低糖", "低脂", "少鹽", "蝦仁", "白蝦", "大蒜", "西班牙煙燻紅椒粉", "歐芹", "Tapas"],
+    ingredients: [
+      { name: "生鮮無毒大蝦仁", amount: "10-12隻", isMain: true },
+      { name: "大蒜", amount: "5瓣 (切厚片)", isMain: true },
+      { name: "西班牙煙燻紅椒粉 (Pimentón)", amount: "1/2小匙", isMain: false },
+      { name: "乾燥碎辣椒", amount: "1/3小匙", isMain: false },
+      { name: "新鮮歐芹/巴西里", amount: "1小把 (切碎)", isMain: false },
+      { name: "特級初榨橄欖油", amount: "1小匙 (減油改良版)", isMain: false },
+      { name: "檸檬角", amount: "1塊", isMain: false }
+    ],
+    steps: [
+      "小鑄鐵鍋或不沾鍋下一小匙橄欖油，冷油下蒜片與碎辣椒極小火慢煸出蒜香。",
+      "轉中大火，下擦乾水分的鮮蝦仁快速翻炒 90 秒至雙面轉紅彈牙。",
+      "關火加入煙燻紅椒粉與大量歐芹碎翻勻，擠上新鮮檸檬汁趁熱享用。"
+    ],
+    tips: "傳統西班牙蒜蝦浸在厚厚橄欖油中，改良版僅用 1 小匙油低溫煸蒜香，熱量直降 70%！"
+  },
+  {
+    id: "rec-intl-005",
+    title: "墨西哥青檸彩椒牛排法士達碗 (Fajita Bowl)",
+    category: "high-protein",
+    categoryName: "高蛋白肌力",
+    calories: 340,
+    protein: 38,
+    fat: 9,
+    carbs: 22,
+    prepTime: 15,
+    difficulty: "簡單",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80",
+    source: "Delish (美國)",
+    sourceUrl: "https://www.delish.com",
+    tags: ["增肌", "減脂", "低糖", "牛板腱", "牛肉", "彩椒", "洋蔥", "酪梨", "孜然", "墨西哥料理"],
+    ingredients: [
+      { name: "牛板腱/牛里肌肉", amount: "170g (切粗條)", isMain: true },
+      { name: "三色彩椒", amount: "1顆 (切粗絲)", isMain: true },
+      { name: "紫洋蔥", amount: "半顆 (切粗絲)", isMain: true },
+      { name: "成熟酪梨", amount: "30g (切丁)", isMain: false },
+      { name: "墨西哥塔可香料/孜然粉", amount: "1小匙", isMain: false },
+      { name: "青檸檬汁", amount: "1大匙", isMain: false },
+      { name: "橄欖油", amount: "1/2小匙", isMain: false }
+    ],
+    steps: [
+      "牛肉條以孜然粉、紅椒粉、青檸汁醃 5 分鐘。",
+      "熱鍋噴薄油，先將彩椒絲與洋蔥絲大火翻炒至邊緣微焦糖化（約 2 分鐘）盛起。",
+      "同鍋大火下牛肉條高溫翻煎 90 秒至 7 分熟軟嫩。",
+      "大碗盛入彩椒洋蔥基底，放上炙烤牛柳，頂部加酪梨丁與青檸角拌勻開吃！"
+    ],
+    tips: "高溫快炒彩椒能鎖住多汁脆度，搭配酪梨優質好油，滿足感十足且無多餘澱粉負擔！"
+  },
+  {
+    id: "rec-intl-006",
+    title: "義式托斯卡尼番茄嫩白豆燉雞 (Tuscan Chicken)",
+    category: "high-protein",
+    categoryName: "高蛋白肌力",
+    calories: 320,
+    protein: 40,
+    fat: 6,
+    carbs: 22,
+    prepTime: 20,
+    difficulty: "簡單",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+    source: "EatingWell (美國)",
+    sourceUrl: "https://www.eatingwell.com",
+    tags: ["增肌", "減脂", "低脂", "少鹽", "雞胸肉", "白豆", "熟白豆", "嫩菠菜", "牛番茄", "義大利料理"],
+    ingredients: [
+      { name: "雞胸肉排", amount: "180g", isMain: true },
+      { name: "熟白豆/鷹嘴豆", amount: "70g", isMain: true },
+      { name: "新鮮嫩菠菜", amount: "60g", isMain: true },
+      { name: "熟透牛番茄", amount: "1顆 (切丁)", isMain: true },
+      { name: "大蒜", amount: "2瓣 (切碎)", isMain: false },
+      { name: "迷迭香與百里香", amount: "1/2小匙", isMain: false },
+      { name: "黑胡椒", amount: "少許", isMain: false }
+    ],
+    steps: [
+      "熱鍋噴少許油，先將雞胸肉雙面煎至金黃後取出。",
+      "同鍋下蒜碎、番茄丁與 100ml 水小火煮至番茄軟爛化成醬汁。",
+      "加入熟白豆與迷迭香草燉煮 3 分鐘吸味。",
+      "倒回雞胸肉，最後放入嫩菠菜燜煮 1 分鐘至菠菜軟化即可盛盤。"
+    ],
+    tips: "托斯卡尼白豆（Cannellini Beans）富含慢消化抗性澱粉與纖維，搭配濃郁番茄菠菜高蛋白又低脂！"
+  },
+  {
+    id: "rec-intl-007",
+    title: "秘魯青檸醃鮮魚酪梨冷盤 (Classic Ceviche)",
+    category: "quick-meal",
+    categoryName: "超快即食",
+    calories: 210,
+    protein: 30,
+    fat: 7,
+    carbs: 6,
+    prepTime: 10,
+    difficulty: "極簡易",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+    source: "BBC Good Food (英國)",
+    sourceUrl: "https://www.bbcgoodfood.com",
+    tags: ["減脂", "低糖", "低脂", "少鹽", "鯛魚片", "鱸魚", "酪梨", "紫洋蔥", "新鮮檸檬汁", "無油免開火", "生酮"],
+    ingredients: [
+      { name: "生食級鯛魚/鱸魚菲力", amount: "160g (切一口方塊)", isMain: true },
+      { name: "新鮮檸檬汁", amount: "3大匙 (醃熟魚肉蛋白質)", isMain: true },
+      { name: "紫洋蔥", amount: "1/4顆 (切細絲泡冰水)", isMain: true },
+      { name: "成熟酪梨", amount: "30g (切丁)", isMain: false },
+      { name: "新鮮香菜", amount: "1小把 (切碎)", isMain: false },
+      { name: "紅辣椒圈", amount: "少許", isMain: false },
+      { name: "海鹽與黑胡椒", amount: "微量", isMain: false }
+    ],
+    steps: [
+      "將鮮魚塊放入玻璃碗中，倒入滿滿的新鮮檸檬汁完全浸沒。",
+      "放入冰箱冷藏 10 分鐘（檸檬酸天然變性蛋白質使魚肉熟化變白緊緻）。",
+      "加入瀝乾的紫洋蔥絲、香菜碎、辣椒圈與酪梨丁輕柔拌勻。",
+      "冷冽酸香、魚肉鮮甜彈嫩，是一道完全零熱量油脂的南美減脂神菜！"
+    ],
+    tips: "利用柑橘酸「冷熟（Curing）」魚肉蛋白質，保留 100% 水溶性維生素與微量元素！"
+  },
+  {
+    id: "rec-intl-008",
+    title: "摩洛哥香料烤鷹嘴豆花椰菜溫沙拉",
+    category: "low-carb",
+    categoryName: "極低碳減醣",
+    calories: 240,
+    protein: 14,
+    fat: 8,
+    carbs: 26,
+    prepTime: 18,
+    difficulty: "簡單",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+    source: "Minimalist Baker (美國)",
+    sourceUrl: "https://minimalistbaker.com",
+    tags: ["減脂", "低糖", "低脂", "少鹽", "白花椰菜", "熟鷹嘴豆", "薑黃粉", "孜然粉", "紅椒粉", "純素友好", "高纖"],
+    ingredients: [
+      { name: "白花椰菜", amount: "150g (切小朵)", isMain: true },
+      { name: "熟鷹嘴豆", amount: "80g", isMain: true },
+      { name: "孜然粉與薑黃粉", amount: "各1/2小匙", isMain: false },
+      { name: "匈牙利紅椒粉", amount: "1/2小匙", isMain: false },
+      { name: "新鮮檸檬汁", amount: "1小匙", isMain: false },
+      { name: "橄欖油", amount: "1/2小匙", isMain: false },
+      { name: "熟白芝麻", amount: "少許", isMain: false }
+    ],
+    steps: [
+      "白花椰菜與鷹嘴豆拌入孜然、薑黃、紅椒粉與少許橄欖油抓勻。",
+      "平鋪於烤盤，氣炸鍋或烤箱 200°C 烤 12-15 分鐘至花椰菜邊緣焦香酥脆、鷹嘴豆如堅果般香脆。",
+      "出爐擠上檸檬汁、撒上白芝麻，溫熱酥脆極具中東異國風情！"
+    ],
+    tips: "薑黃與孜然具備強大抗發炎與促進基礎代謝機能，烤酥的鷹嘴豆能完美解饞！"
+  },
+  {
+    id: "rec-intl-009",
+    title: "越南清爽鮮蝦米紙生春捲 (Summer Rolls)",
+    category: "quick-meal",
+    categoryName: "超快即食",
+    calories: 220,
+    protein: 24,
+    fat: 3,
+    carbs: 22,
+    prepTime: 12,
+    difficulty: "簡單",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
+    source: "Tasty (國際)",
+    sourceUrl: "https://tasty.co",
+    tags: ["減脂", "低脂", "少鹽", "鮮蝦仁", "米紙皮", "小黃瓜", "美生菜", "薄荷葉", "東南亞輕食"],
+    ingredients: [
+      { name: "熟鮮蝦仁", amount: "8隻 (橫切對半)", isMain: true },
+      { name: "越南米紙春捲皮", amount: "3張", isMain: true },
+      { name: "美生菜葉", amount: "50g (切絲)", isMain: true },
+      { name: "小黃瓜", amount: "半條 (切細條)", isMain: true },
+      { name: "新鮮九層塔/薄荷葉", amount: "1小把", isMain: false },
+      { name: "香檸魚露沾醬", amount: "1大匙 (魚露+水+檸檬汁+辣椒)", isMain: false }
+    ],
+    steps: [
+      "米紙皮在溫水中快速沾浸 3 秒取出鋪平在乾淨盤上。",
+      "中央依序鋪上生菜絲、小黃瓜條、薄荷葉與紅潤的蝦仁切面朝下。",
+      "將米紙左右折起，緊實捲成圓條狀。",
+      "沾著清爽香檸酸辣汁一口咬下，晶瑩透亮、無油清脆高蛋白！"
+    ],
+    tips: "一張越南米紙熱量僅約 30 大卡，捲入大量蔬菜與鮮蝦，是全球健身族最愛的清爽主食！"
+  },
+  {
+    id: "rec-intl-010",
+    title: "奇亞籽野莓無糖希臘優格高蛋白布丁",
+    category: "quick-meal",
+    categoryName: "超快即食",
+    calories: 210,
+    protein: 20,
+    fat: 5,
+    carbs: 18,
+    prepTime: 5,
+    difficulty: "極簡易",
+    servings: 1,
+    image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80",
+    source: "FitMenCook (美國)",
+    sourceUrl: "https://fitmencook.com",
+    tags: ["減脂", "低糖", "低脂", "無糖希臘優格", "奇亞籽", "冷凍藍莓", "高纖甜點", "免開火"],
+    ingredients: [
+      { name: "無糖希臘優格", amount: "120g", isMain: true },
+      { name: "奇亞籽", amount: "10g (約1大匙)", isMain: true },
+      { name: "無糖豆漿/杏仁奶", amount: "50ml", isMain: true },
+      { name: "新鮮藍莓/野莓", amount: "30g", isMain: false },
+      { name: "純香草精", amount: "2滴 (提升甜香)", isMain: false }
+    ],
+    steps: [
+      "在玻璃杯中將奇亞籽、無糖豆漿與希臘優格、香草精充分攪拌均勻。",
+      "靜置冷藏 20 分鐘（或隔夜），奇亞籽吸水膨脹形成如布丁般Q彈膠狀口感。",
+      "頂部鋪上新鮮藍莓即完成高纖低卡又解饞的蛋白質甜點！"
+    ],
+    tips: "奇亞籽吸水後膨脹 10 倍，富含水溶性膳食纖維與 Omega-3，能有效撫平甜食飢餓感！"
+  },
+
+  // ==========================================
+  // 【二、在地與亞洲各國經典減脂料理】
+  // ==========================================
+  {
+    id: "rec-asia-001",
     title: "經典香檸黑椒舒肥雞胸肉",
     category: "high-protein",
     categoryName: "高蛋白肌力",
@@ -20,485 +350,25 @@ const DEFAULT_RECIPES = [
     image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
     source: "愛料理 iCook",
     sourceUrl: "https://icook.tw",
-    tags: ["雞胸肉", "檸檬", "高蛋白", "舒肥", "低脂", "便當菜"],
+    tags: ["增肌", "減脂", "低糖", "低脂", "少鹽", "雞胸肉", "檸檬汁", "黑胡椒", "大蒜", "高蛋白"],
     ingredients: [
       { name: "雞胸肉", amount: "200g", isMain: true },
       { name: "檸檬汁", amount: "1大匙", isMain: false },
       { name: "黑胡椒粒", amount: "1小匙", isMain: false },
       { name: "橄欖油", amount: "1/2小匙", isMain: false },
-      { name: "海鹽", amount: "適量", isMain: false },
       { name: "大蒜", amount: "2瓣 (切碎)", isMain: false },
       { name: "義大利香料", amount: "1/2小匙", isMain: false }
     ],
     steps: [
-      "雞胸肉以廚房紙巾吸乾水分，表面劃數刀方便入味。",
-      "將檸檬汁、黑胡椒、橄欖油、海鹽、蒜碎與義大利香料均勻抹在雞胸肉上，醃漬 10-15 分鐘。",
-      "熱鍋噴少許油，放入雞胸肉中火煎至兩面金黃（各約 2-3 分鐘）。",
-      "蓋上鍋蓋轉小火悶煎 4 分鐘，關火靜置 3 分鐘鎖住肉汁即可切片享用。"
+      "雞胸肉吸乾水分，劃數刀方便入味。",
+      "將檸檬汁、黑胡椒、蒜碎與義式香料均勻抹在雞胸肉上醃漬 10 分鐘。",
+      "平底鍋噴薄油，中火煎兩面金黃各 2 分鐘，蓋鍋小火燜煎 4 分鐘。",
+      "關火靜置 3 分鐘鎖住肉汁後切片享用。"
     ],
-    tips: "靜置（Resting）是雞胸肉鮮嫩多汁的關鍵，切勿起鍋立即切開！"
+    tips: "靜置（Resting）是雞胸肉鮮嫩爆汁的唯一秘訣！"
   },
   {
-    id: "rec-004",
-    title: "鮮嫩紙包時蔬烤鮭魚",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 340,
-    protein: 34,
-    fat: 18,
-    carbs: 8,
-    prepTime: 20,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80",
-    source: "健身廚房",
-    sourceUrl: "https://icook.tw",
-    tags: ["鮭魚", "玉米筍", "杏鮑菇", "牛番茄", "優質油脂", "氣炸鍋", "烤箱"],
-    ingredients: [
-      { name: "生鮮鮭魚菲力", amount: "150g", isMain: true },
-      { name: "小番茄", amount: "5顆 (對半切)", isMain: true },
-      { name: "杏鮑菇", amount: "1根 (切片)", isMain: true },
-      { name: "玉米筍", amount: "3根 (對切)", isMain: false },
-      { name: "檸檬片", amount: "2片", isMain: false },
-      { name: "黑胡椒", amount: "1/2小匙", isMain: false },
-      { name: "海鹽", amount: "適量", isMain: false },
-      { name: "迷迭香/百里香", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "烘焙紙鋪底，先將杏鮑菇、玉米筍、番茄鋪在底部。",
-      "鮭魚菲力吸乾水分，兩面撒上海鹽與黑胡椒，放在時蔬上。",
-      "頂部放上新鮮檸檬片與迷迭香草。",
-      "將烘焙紙四邊折起包裹密封（糖果形狀）。",
-      "放入氣炸鍋或烤箱以 180°C 烤 15-18 分鐘至熟透香氣溢出。"
-    ],
-    tips: "烘焙紙能將鮭魚天然 Omega-3 魚油與蔬菜鮮甜蒸氣完全鎖在內部，完全不需額外加油！"
-  },
-  {
-    id: "rec-007",
-    title: "蒜香黑胡椒煎牛里肌佐杏鮑菇",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 320,
-    protein: 38,
-    fat: 12,
-    carbs: 6,
-    prepTime: 15,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["牛肉", "牛里肌", "杏鮑菇", "蒜頭", "黑胡椒", "高鐵高蛋白"],
-    ingredients: [
-      { name: "牛里肌肉排", amount: "180g", isMain: true },
-      { name: "杏鮑菇", amount: "2大根 (切滾刀塊)", isMain: true },
-      { name: "大蒜", amount: "4瓣 (切厚片)", isMain: false },
-      { name: "橄欖油", amount: "1小匙", isMain: false },
-      { name: "粗粒黑胡椒", amount: "1小匙", isMain: false },
-      { name: "海鹽", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "牛里肌切一口大小丁狀，以少許鹽與黑胡椒醃 5 分鐘。",
-      "熱鍋下一小匙橄欖油，先下蒜片小火煎至金黃微脆後撈起備用。",
-      "轉大火下牛肉丁快速翻煎至表面焦香微脆（約 1.5 分鐘）。",
-      "加入杏鮑菇塊大火同炒至出汁軟嫩。",
-      "關火撒回蒜酥片與大量現磨黑胡椒拌勻出鍋。"
-    ],
-    tips: "里肌肉油脂少，大火快煎保持內部 7 分熟最軟嫩多汁。"
-  },
-  {
-    id: "rec-011",
-    title: "金黃嫩煎鯛魚佐黑胡椒時蔬",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 240,
-    protein: 36,
-    fat: 4,
-    carbs: 8,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["鯛魚", "四季豆", "甜椒", "蒜頭", "黑胡椒", "低脂海鮮"],
-    ingredients: [
-      { name: "台灣鯛魚排", amount: "180g", isMain: true },
-      { name: "甜椒", amount: "半顆 (切塊)", isMain: true },
-      { name: "四季豆", amount: "50g (去絲切段)", isMain: true },
-      { name: "蒜片", amount: "2瓣", isMain: false },
-      { name: "米酒", amount: "1小匙", isMain: false },
-      { name: "海鹽與黑胡椒", amount: "適量", isMain: false },
-      { name: "橄欖油", amount: "1/2小匙", isMain: false }
-    ],
-    steps: [
-      "鯛魚排以廚房紙巾吸乾，淋少許米酒抹上海鹽與黑胡椒。",
-      "熱鍋薄油，將鯛魚排魚皮面（或一面）朝下中火煎 3 分鐘至金黃。",
-      "翻面同時在鍋邊空位下蒜片、甜椒與四季豆同煎翻炒。",
-      "轉小火煎熟魚肉與蔬菜，灑上現磨黑胡椒即可起鍋。"
-    ],
-    tips: "鯛魚油脂極低且富含優質蛋白，煎魚時切記定型後再翻面，魚肉才不會碎裂。"
-  },
-  {
-    id: "rec-012",
-    title: "減脂黃金地瓜高蛋白雞肉沙拉碗",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 360,
-    protein: 36,
-    fat: 6,
-    carbs: 38,
-    prepTime: 15,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
-    source: "小紅書健康減脂精選",
-    sourceUrl: "https://icook.tw",
-    tags: ["地瓜", "雞胸肉", "水煮蛋", "小黃瓜", "毛豆仁", "優質碳水", "健身增肌減脂"],
-    ingredients: [
-      { name: "黃地瓜", amount: "120g (蒸熟切塊)", isMain: true },
-      { name: "舒肥雞胸肉", amount: "130g (撕成條狀)", isMain: true },
-      { name: "熟毛豆仁", amount: "40g", isMain: true },
-      { name: "水煮蛋", amount: "1顆", isMain: true },
-      { name: "小黃瓜", amount: "半條 (切片)", isMain: false },
-      { name: "蜂蜜芥末籽和風醬", amount: "1小匙", isMain: false }
-    ],
-    steps: [
-      "地瓜洗淨帶皮蒸熟後切塊放涼（放涼會增加抗性澱粉）。",
-      "雞胸肉撕成絲或切條，小黃瓜切薄片。",
-      "將地瓜塊、雞胸肉、毛豆仁、切片水煮蛋與小黃瓜均勻盛盤。",
-      "淋上一小匙低熱量芥末籽和風醬拌勻。"
-    ],
-    tips: "蒸熟放涼的地瓜具有抗性澱粉，熱量吸收少 20% 且能餵養腸道好菌！"
-  },
-  {
-    id: "rec-017",
-    title: "鮮蔬菠菜高蛋白烘蛋",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 260,
-    protein: 24,
-    fat: 14,
-    carbs: 5,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["菠菜", "雞蛋", "洋蔥", "小番茄", "鐵質", "低卡烘蛋"],
-    ingredients: [
-      { name: "新鮮菠菜", amount: "100g (洗淨切段)", isMain: true },
-      { name: "雞蛋", amount: "3顆 (打散)", isMain: true },
-      { name: "洋蔥丁", amount: "30g", isMain: false },
-      { name: "小番茄", amount: "4顆 (對半切)", isMain: false },
-      { name: "橄欖油", amount: "1小匙", isMain: false },
-      { name: "黑胡椒與鹽", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "熱鍋下少許橄欖油，先炒香洋蔥丁至透明。",
-      "下菠菜段翻炒至軟化出水後瀝除多餘水分。",
-      "將雞蛋液調入鹽與黑胡椒，倒入鍋中與菠菜、洋蔥混合。",
-      "頂部擺上小番茄切面朝上，蓋上鍋蓋微火慢烘 6 分鐘至蛋液完全膨起熟透。"
-    ],
-    tips: "菠菜富含葉酸與鐵質，搭配富含維生素C的番茄可大幅提升鐵質吸收率！"
-  },
-  {
-    id: "rec-019",
-    title: "鮮蔬水煮鯛魚毛豆減脂便當",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 330,
-    protein: 40,
-    fat: 5,
-    carbs: 22,
-    prepTime: 15,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["鯛魚", "毛豆仁", "玉米筍", "南瓜", "地瓜", "便當常備菜"],
-    ingredients: [
-      { name: "鯛魚排", amount: "180g (切大片)", isMain: true },
-      { name: "熟毛豆仁", amount: "50g", isMain: true },
-      { name: "玉米筍", amount: "4根", isMain: true },
-      { name: "蒸南瓜/地瓜", amount: "80g", isMain: false },
-      { name: "薑絲與蔥絲", amount: "少許", isMain: false },
-      { name: "薄鹽白醬油", amount: "1小匙", isMain: false }
-    ],
-    steps: [
-      "滾水中加入薑片與少許米酒，放入玉米筍燙熟撈起。",
-      "同鍋放入鯛魚片微火浸熟（水不滾沸）約 3 分鐘撈起，保持肉質鮮嫩細緻。",
-      "將熟南瓜塊、玉米筍、毛豆仁與鯛魚片整齊裝入便當盒。",
-      "鯛魚鋪上蔥絲，淋上 1 小匙薄鹽白醬油調味。"
-    ],
-    tips: "毛豆是植物界蛋白質之王，搭配鯛魚能一次補足優質動植物雙蛋白！"
-  },
-  {
-    id: "rec-020",
-    title: "氣炸鮮菇義式香草烤雞腿排 (去皮)",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 290,
-    protein: 35,
-    fat: 10,
-    carbs: 6,
-    prepTime: 20,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["去骨雞腿肉", "去皮雞腿", "鴻禧菇", "香菇", "氣炸鍋", "烤箱"],
-    ingredients: [
-      { name: "去骨雞腿排 (去皮)", amount: "180g", isMain: true },
-      { name: "鮮香菇/鴻禧菇", amount: "100g", isMain: true },
-      { name: "義大利綜合香草", amount: "1小匙", isMain: false },
-      { name: "大蒜粉", amount: "1/2小匙", isMain: false },
-      { name: "黑胡椒粒", amount: "1/2小匙", isMain: false },
-      { name: "海鹽", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "雞腿肉去除多餘油脂與外皮，以香草、蒜粉、黑胡椒、海鹽醃漬 10 分鐘。",
-      "氣炸鍋底部鋪上洗淨切塊的鮮香菇與鴻禧菇。",
-      "頂部平鋪上醃好的雞腿排。",
-      "氣炸鍋設定 180°C 烤 12 分鐘，翻面再以 200°C 烤 4 分鐘逼出香氣上色。"
-    ],
-    tips: "雞腿去皮後熱量直接砍半，肉質比雞胸更軟嫩彈牙，菇類吸附雞汁後格外鮮甜！"
-  },
-  {
-    id: "rec-023",
-    title: "彩椒洋蔥炒牛柳（減油黑椒風味）",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 270,
-    protein: 32,
-    fat: 8,
-    carbs: 12,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["牛里肌", "甜椒", "彩椒", "洋蔥", "黑胡椒", "高蛋白質"],
-    ingredients: [
-      { name: "牛里肌肉", amount: "160g (切粗柳條)", isMain: true },
-      { name: "紅黃甜椒", amount: "各半顆 (切條)", isMain: true },
-      { name: "洋蔥", amount: "半顆 (切粗絲)", isMain: true },
-      { name: "大蒜", amount: "2瓣 (切碎)", isMain: false },
-      { name: "蠔油/薄鹽醬油", amount: "1小匙", isMain: false },
-      { name: "現磨黑胡椒", amount: "1小匙", isMain: false },
-      { name: "橄欖油", amount: "1/2小匙", isMain: false }
-    ],
-    steps: [
-      "牛柳加少許醬油與黑胡椒抓醃 5 分鐘。",
-      "熱鍋噴薄油，先下洋蔥與彩椒條大火快炒 2 分鐘至斷生爽脆盛出。",
-      "同鍋下蒜末與牛柳大火翻炒至 8 分熟。",
-      "倒回彩椒與洋蔥，加入蠔油與大量黑胡椒粒大火翻勻 20 秒立即出鍋。"
-    ],
-    tips: "甜椒是維生素 C 之王，能促進膠原蛋白合成與鐵質吸收。"
-  },
-  {
-    id: "rec-025",
-    title: "泰式九層塔打拋舒肥雞胸肉",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 250,
-    protein: 38,
-    fat: 6,
-    carbs: 8,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["雞胸肉", "九層塔", "牛番茄", "蒜頭", "辣椒", "泰式打拋", "開胃"],
-    ingredients: [
-      { name: "雞胸肉", amount: "180g (切碎丁或絞肉)", isMain: true },
-      { name: "新鮮九層塔", amount: "1大把", isMain: true },
-      { name: "牛番茄", amount: "半顆 (切丁)", isMain: true },
-      { name: "蒜末與辣椒", amount: "各1小匙", isMain: false },
-      { name: "魚露", amount: "1小匙 (低鈉)", isMain: false },
-      { name: "薄鹽醬油", amount: "1小匙", isMain: false },
-      { name: "橄欖油", amount: "1/2小匙", isMain: false }
-    ],
-    steps: [
-      "鍋內噴少許油，爆香蒜末與辣椒碎。",
-      "加入雞胸肉丁大火快炒至顏色變白約 8 分熟。",
-      "加入番茄丁與魚露、薄鹽醬油拌炒入味。",
-      "起鍋前關火，投入大把新鮮九層塔利用餘溫翻勻即可起鍋。"
-    ],
-    tips: "用低脂雞胸肉丁取代傳統高油脂豬絞肉，熱量減少 50% 蛋白質大幅提升！"
-  },
-  {
-    id: "rec-026",
-    title: "鮮蝦滑蛋嫩豆腐高蛋白波奇碗 (Poke Bowl)",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 320,
-    protein: 36,
-    fat: 9,
-    carbs: 18,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
-    source: "健身廚房",
-    sourceUrl: "https://icook.tw",
-    tags: ["蝦仁", "雞蛋", "板豆腐", "毛豆仁", "小黃瓜", "波奇碗", "低脂高蛋白"],
-    ingredients: [
-      { name: "鮮蝦仁", amount: "8隻 (燙熟)", isMain: true },
-      { name: "雞蛋", amount: "2顆 (打散)", isMain: true },
-      { name: "板豆腐", amount: "100g (切丁乾煎)", isMain: true },
-      { name: "熟毛豆仁", amount: "40g", isMain: true },
-      { name: "小黃瓜丁", amount: "半條", isMain: false },
-      { name: "和風芝麻芥末醬", amount: "1小匙 (減卡)", isMain: false }
-    ],
-    steps: [
-      "板豆腐丁熱鍋乾煎至表面微金黃鋪在碗底當基底。",
-      "鍋內噴微量油，倒入蛋液推動成滑嫩半熟滑蛋盛在豆腐上方。",
-      "周圍鋪上燙熟蝦仁、毛豆仁與爽脆小黃瓜丁。",
-      "淋上一小匙低卡和風醬汁即完成色彩繽紛又超飽足的高蛋白碗！"
-    ],
-    tips: "以高鈣板豆腐丁取代傳統白飯作為基底，滿足咀嚼感同時維持超高蛋白質！"
-  },
-  {
-    id: "rec-027",
-    title: "照燒低脂板豆腐雞肉漢堡排",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 270,
-    protein: 34,
-    fat: 7,
-    carbs: 14,
-    prepTime: 20,
-    difficulty: "簡單",
-    servings: 2,
-    image: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["雞胸肉", "板豆腐", "洋蔥", "雞蛋", "漢堡排", "日式便當菜"],
-    ingredients: [
-      { name: "雞胸絞肉", amount: "200g", isMain: true },
-      { name: "板豆腐", amount: "100g (壓乾水分壓碎)", isMain: true },
-      { name: "洋蔥末", amount: "40g (炒軟放涼)", isMain: true },
-      { name: "雞蛋液", amount: "半顆", isMain: false },
-      { name: "黑胡椒與鹽", amount: "適量", isMain: false },
-      { name: "照燒減鹽醬汁", amount: "1大匙 (醬油+味醂+水)", isMain: false }
-    ],
-    steps: [
-      "板豆腐以紙巾包覆壓乾水分後捏成碎末。",
-      "將雞肉餡、碎豆腐、炒洋蔥末、蛋液、鹽與黑胡椒順時針攪拌至產生黏性。",
-      "捏成兩大塊厚圓餅狀漢堡排，在雙手掌心來回拍打拍出空氣。",
-      "熱鍋噴薄油下漢堡排，中火煎 3 分鐘翻面，加 2 匙水蓋鍋小火蒸熟 4 分鐘。",
-      "開蓋淋上照燒醬汁微收汁即可起鍋。"
-    ],
-    tips: "豆腐與雞絞肉 1:2 完美黃金比例，能讓雞胸漢堡排保持驚人的多汁柔軟度！"
-  },
-  {
-    id: "rec-028",
-    title: "蒜蓉清蒸鮮蝦金針菇",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 190,
-    protein: 26,
-    fat: 3,
-    carbs: 11,
-    prepTime: 12,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["蝦仁", "白蝦", "金針菇", "蒜蓉", "青蔥", "清蒸", "無油料理"],
-    ingredients: [
-      { name: "鮮白蝦/蝦仁", amount: "10隻 (開背去腸泥)", isMain: true },
-      { name: "金針菇", amount: "1包 (去根洗淨)", isMain: true },
-      { name: "大蒜", amount: "5瓣 (剁成細碎蒜蓉)", isMain: false },
-      { name: "薄鹽白醬油", amount: "1大匙", isMain: false },
-      { name: "白胡椒粉", amount: "少許", isMain: false },
-      { name: "青蔥花", amount: "1大匙", isMain: false }
-    ],
-    steps: [
-      "金針菇鋪在深盤底部作為基底。",
-      "將開背的鮮蝦整齊鋪在金針菇上方。",
-      "將蒜蓉、薄鹽醬油、少許水調勻，均勻淋在鮮蝦表面。",
-      "放入電鍋或蒸鍋大火蒸 6-7 分鐘至鮮蝦熟透泛紅。",
-      "出鍋撒上蔥花即可連同金針菇精華鮮甜湯汁一起享用！"
-    ],
-    tips: "清蒸完全零添加烹調油，金針菇在盤底吸飽鮮蝦蒜蓉精華甘甜無比！"
-  },
-  {
-    id: "rec-029",
-    title: "鮮嫩清蒸鱸魚菲力佐香菇薑蔥",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 220,
-    protein: 36,
-    fat: 5,
-    carbs: 4,
-    prepTime: 15,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["鱸魚", "鮮香菇", "薑絲", "青蔥", "高蛋白魚肉", "術後養身", "清蒸"],
-    ingredients: [
-      { name: "金目鱸魚排/鱸魚菲力", amount: "180g", isMain: true },
-      { name: "鮮香菇", amount: "2朵 (切薄片)", isMain: true },
-      { name: "嫩薑絲", amount: "1小撮", isMain: false },
-      { name: "青蔥絲", amount: "1小把", isMain: false },
-      { name: "米酒", amount: "1小匙", isMain: false },
-      { name: "蒸魚醬油/薄鹽醬油", amount: "1大匙", isMain: false }
-    ],
-    steps: [
-      "鱸魚排擦乾水分，魚身抹少許鹽與米酒去腥。",
-      "盤底鋪少許薑絲與香菇片，放上鱸魚排，頂部再鋪薑絲與香菇片。",
-      "蒸鍋水滾後放入大火蒸 8-9 分鐘至魚肉變白熟透。",
-      "出鍋倒掉盤內多餘腥水，鋪上大量青蔥絲，淋上一大匙蒸魚醬油即可。"
-    ],
-    tips: "鱸魚肉質細嫩極易消化吸收，豐富膠原蛋白與胺基酸是修復肌肉的最佳食材！"
-  },
-  {
-    id: "rec-030",
-    title: "孜然香料氣炸無油嫩雞柳條",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 210,
-    protein: 38,
-    fat: 3,
-    carbs: 4,
-    prepTime: 15,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
-    source: "小紅書健康減脂精選",
-    sourceUrl: "https://icook.tw",
-    tags: ["雞里肌", "雞柳條", "孜然粉", "辣椒粉", "氣炸鍋", "偽鹹酥雞", "追劇高蛋白點心"],
-    ingredients: [
-      { name: "雞里肌肉/雞柳條", amount: "180g", isMain: true },
-      { name: "孜然粉", amount: "1小匙", isMain: false },
-      { name: "匈牙利紅椒粉/辣椒粉", amount: "1/2小匙", isMain: false },
-      { name: "大蒜粉", amount: "1/2小匙", isMain: false },
-      { name: "薄鹽生抽", amount: "1小匙", isMain: false },
-      { name: "海鹽與白芝麻", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "雞柳條剔除白色筋膜，切成條狀。",
-      "加入生抽、孜然粉、蒜粉、辣椒粉、海鹽抓勻醃漬 10 分鐘。",
-      "將雞柳平鋪於氣炸鍋烘焙紙上，表面噴極微量橄欖油霧。",
-      "氣炸鍋 180°C 烤 10 分鐘，翻面 200°C 烤 3 分鐘逼出香氣，出鍋撒白芝麻。"
-    ],
-    tips: "雞里肌比雞胸更加軟嫩，孜然與紅椒粉營造出燒烤鹽酥香氣，是嘴饞時的最佳高蛋白救星！"
-  },
-
-  // ==================== 【極低碳減醣 / 生酮友好】 ====================
-  {
-    id: "rec-002",
+    id: "rec-asia-002",
     title: "低碳蝦仁青花菜炒「飯」（花椰菜米）",
     category: "low-carb",
     categoryName: "極低碳減醣",
@@ -512,11 +382,11 @@ const DEFAULT_RECIPES = [
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
     source: "Cookpad",
     sourceUrl: "https://cookpad.com/tw",
-    tags: ["蝦仁", "白花椰菜", "青花菜", "雞蛋", "花椰菜米", "低碳水", "偽炒飯"],
+    tags: ["減脂", "低糖", "減醣", "鮮蝦仁", "白花椰菜米", "青花菜", "雞蛋", "青蔥", "偽炒飯"],
     ingredients: [
       { name: "白花椰菜米", amount: "200g", isMain: true },
       { name: "青花菜", amount: "80g (切小朵)", isMain: true },
-      { name: "無毒生鮮蝦仁", amount: "100g (約8-10隻)", isMain: true },
+      { name: "無毒鮮蝦仁", amount: "100g", isMain: true },
       { name: "雞蛋", amount: "1顆", isMain: true },
       { name: "青蔥", amount: "1支 (切花)", isMain: false },
       { name: "白胡椒粉", amount: "適量", isMain: false },
@@ -524,319 +394,49 @@ const DEFAULT_RECIPES = [
       { name: "橄欖油", amount: "1小匙", isMain: false }
     ],
     steps: [
-      "蝦仁洗淨擦乾，加入少許胡椒粉與米酒去腥。",
-      "熱鍋下半小匙油，先將雞蛋打散炒成碎蛋後盛起備用。",
-      "同鍋下蝦仁煎至雙面變紅約 8 分熟撈起。",
-      "下花椰菜米與青花菜大火翻炒 2-3 分鐘至水分收乾。",
-      "倒回炒蛋與蝦仁，加入薄鹽醬油、胡椒粉快速拌勻，撒上蔥花即可起鍋。"
+      "先炒散雞蛋成碎蛋盛起，蝦仁煎至 8 分熟盛起。",
+      "同鍋下花椰菜米與青花菜大火翻炒 2-3 分鐘炒乾水分。",
+      "倒回炒蛋與蝦仁，加薄鹽醬油與胡椒粉翻勻，灑上蔥花起鍋。"
     ],
-    tips: "花椰菜米翻炒時切勿加水，大火快速乾炒能營造粒粒分明的炒飯口感！"
+    tips: "花椰菜米乾炒不加水，才能營造出粒粒分明的香香炒飯口感！"
   },
   {
-    id: "rec-006",
-    title: "酪梨鮮蝦水煮蛋低卡溫沙拉",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 290,
-    protein: 26,
-    fat: 16,
-    carbs: 9,
-    prepTime: 10,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["酪梨", "蝦仁", "雞蛋", "生菜", "小番茄", "優質好油", "冷便當"],
-    ingredients: [
-      { name: "成熟酪梨", amount: "半顆 (切丁)", isMain: true },
-      { name: "鮮蝦仁", amount: "8隻", isMain: true },
-      { name: "水煮蛋", amount: "1顆 (切片)", isMain: true },
-      { name: "綜合生菜", amount: "60g", isMain: true },
-      { name: "小番茄", amount: "5顆", isMain: false },
-      { name: "檸檬汁", amount: "1小匙", isMain: false },
-      { name: "油醋醬/黑胡椒", amount: "1小匙", isMain: false }
-    ],
-    steps: [
-      "蝦仁沸水汆燙 1 分鐘撈起冰鎮保持彈牙口感。",
-      "酪梨切丁淋上檸檬汁防氧化變黑。",
-      "大碗鋪上洗淨瀝乾的綜合生菜。",
-      "均勻擺上蝦仁、水煮蛋片、酪梨丁與小番茄。",
-      "淋上少許油醋醬或僅撒黑胡椒與海鹽即完成。"
-    ],
-    tips: "酪梨富含單元不飽和脂肪酸與鉀離子，有助消水腫並延長飽足感。"
-  },
-  {
-    id: "rec-009",
-    title: "無麵粉櫛瓜烘蛋披薩",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 240,
-    protein: 20,
-    fat: 12,
-    carbs: 7,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
-    source: "健身廚房",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["櫛瓜", "雞蛋", "低脂起司", "番茄", "無麵粉", "早餐蛋料理"],
-    ingredients: [
-      { name: "綠櫛瓜", amount: "1根 (切薄圓片)", isMain: true },
-      { name: "雞蛋", amount: "2顆", isMain: true },
-      { name: "低脂摩佐羅拉起司絲", amount: "15g", isMain: false },
-      { name: "小番茄", amount: "3顆 (切片)", isMain: false },
-      { name: "黑胡椒與鹽", amount: "適量", isMain: false },
-      { name: "橄欖油", amount: "1/2小匙", isMain: false }
-    ],
-    steps: [
-      "平底不沾鍋抹薄薄一層油，將櫛瓜圓片如花瓣般均勻排滿鍋底。",
-      "中火乾煎櫛瓜片約 1.5 分鐘至微焦軟化。",
-      "將雞蛋加鹽與黑胡椒打散，均勻淋在櫛瓜上方填滿縫隙。",
-      "鋪上小番茄片並灑上起司絲，蓋上鍋蓋轉極小火悶煎 4-5 分鐘至蛋液凝固起司融化。"
-    ],
-    tips: "用富含水分與膳食纖維的櫛瓜當餅皮，無麩質低碳水且充滿蛋香！"
-  },
-  {
-    id: "rec-015",
-    title: "蒜辣羅勒鮮蝦炒櫛瓜麵 (Zoodles)",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 250,
-    protein: 26,
-    fat: 9,
-    carbs: 9,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["櫛瓜", "蝦仁", "蒜頭", "辣椒", "九層塔", "櫛瓜麵", "生酮", "低碳義大利麵"],
-    ingredients: [
-      { name: "綠櫛瓜", amount: "2根 (用刨絲器刨成長麵條狀)", isMain: true },
-      { name: "鮮蝦仁", amount: "8-10隻", isMain: true },
-      { name: "大蒜片", amount: "3瓣", isMain: false },
-      { name: "新鮮九層塔/羅勒", amount: "1小把", isMain: false },
-      { name: "紅辣椒", amount: "半根 (去籽切圈)", isMain: false },
-      { name: "橄欖油", amount: "1小匙", isMain: false },
-      { name: "海鹽與黑胡椒", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "櫛瓜刨成細長麵條狀（Zoodles）備用。",
-      "鍋內下一小匙橄欖油，爆香蒜片與辣椒圈。",
-      "加入蝦仁炒至 8 分熟。",
-      "倒入櫛瓜麵大火快速翻炒 1 分鐘（切勿過久否則出水軟爛）。",
-      "加入海鹽、黑胡椒與九層塔翻兩下即可秒速盛盤。"
-    ],
-    tips: "櫛瓜受熱極快出水，大火快炒 60 秒立即關火是維持脆彈麵條口感的秘訣！"
-  },
-  {
-    id: "rec-018",
-    title: "和風薑汁燒牛肉蒟蒻絲低卡丼",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 270,
-    protein: 28,
-    fat: 9,
-    carbs: 12,
-    prepTime: 15,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["牛肉片", "蒟蒻絲", "洋蔥", "薑泥", "魔芋", "偽牛丼", "低GI"],
-    ingredients: [
-      { name: "牛瘦肉片", amount: "140g", isMain: true },
-      { name: "蒟蒻結/蒟蒻絲", amount: "1盒 (約150g)", isMain: true },
-      { name: "洋蔥", amount: "半顆 (切絲)", isMain: true },
-      { name: "生薑泥", amount: "1小匙", isMain: false },
-      { name: "日式味醂", amount: "1小匙", isMain: false },
-      { name: "薄鹽醬油", amount: "1.5大匙", isMain: false },
-      { name: "七味唐辛子", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "蒟蒻絲用熱水汆燙 1 分鐘去除鹼味後瀝乾備用。",
-      "鍋內下洋蔥絲與 100ml 水、醬油、味醂、薑泥煮沸煮軟洋蔥。",
-      "加入汆燙好的蒟蒻絲煨煮 3 分鐘吸附甜鹹和風湯汁。",
-      "最後平鋪入牛肉片煮至 8 分熟變色即關火。",
-      "盛碗後撒上七味粉與蔥花，大口享受完全不擔心碳水超標的減脂牛丼！"
-    ],
-    tips: "蒟蒻絲近乎零熱量且富含水溶性膳食纖維，吸飽牛肉和風湯汁後口感Q脆超滿足。"
-  },
-  {
-    id: "rec-031",
-    title: "韓式泡菜炒雙色花椰菜米無米飯",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 230,
-    protein: 22,
-    fat: 7,
-    carbs: 15,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["花椰菜米", "泡菜", "雞胸肉", "雞蛋", "韓式炒飯", "無澱粉炒飯"],
-    ingredients: [
-      { name: "白花椰菜米", amount: "180g", isMain: true },
-      { name: "韓式泡菜", amount: "60g (切碎)", isMain: true },
-      { name: "雞胸肉丁", amount: "80g", isMain: true },
-      { name: "太陽蛋/荷包蛋", amount: "1顆", isMain: true },
-      { name: "海苔絲", amount: "少許", isMain: false },
-      { name: "香油", amount: "1/3小匙", isMain: false }
-    ],
-    steps: [
-      "熱鍋噴薄油，先下雞胸肉丁炒至變白。",
-      "加入泡菜碎與花椰菜米大火翻炒 3 分鐘至水分收乾微焦香。",
-      "淋上一點點香油拌勻盛盤。",
-      "頂部放上一顆半熟煎蛋，撒上海苔絲與熟白芝麻，劃破蛋黃拌著吃超療癒！"
-    ],
-    tips: "花椰菜米吸飽泡菜天然發酵酸辣湯汁，口感激似石鍋拌飯卻零澱粉罪惡！"
-  },
-  {
-    id: "rec-032",
-    title: "涼拌柴魚秋葵山藥雞絲麵",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 210,
-    protein: 28,
-    fat: 3,
-    carbs: 16,
-    prepTime: 10,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80",
-    source: "日本減醣食譜 Kurashiru",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["秋葵", "日本山藥", "雞胸肉", "柴魚片", "護胃高纖", "無油涼麵"],
-    ingredients: [
-      { name: "水煮雞胸肉絲", amount: "120g", isMain: true },
-      { name: "新鮮秋葵", amount: "6根 (汆燙切星形丁)", isMain: true },
-      { name: "日本山藥", amount: "80g (刨成細絲條)", isMain: true },
-      { name: "日式鰹魚醬油", amount: "1大匙 (加冷開水稀釋)", isMain: false },
-      { name: "柴魚片", amount: "1小包", isMain: false },
-      { name: "芥末醬/七味粉", amount: "少許 (依喜好)", isMain: false }
-    ],
-    steps: [
-      "山藥去皮用刨絲器刨成細麵條狀置於碗底。",
-      "秋葵汆燙 40 秒泡冰水切成星狀小圈圈。",
-      "將雞絲與秋葵鋪在山藥麵上方。",
-      "淋上稀釋的鰹魚醬汁，灑上滿滿柴魚片與微量哇沙米芥末拌勻。"
-    ],
-    tips: "秋葵與山藥的多醣體黏液能保護胃壁、延緩糖分吸收，冰涼爽口高蛋白！"
-  },
-  {
-    id: "rec-033",
-    title: "蒜香黑胡椒煎蘆筍白蝦仁",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 180,
-    protein: 25,
-    fat: 5,
+    id: "rec-asia-003",
+    title: "蒜香黑胡椒煎牛里肌佐杏鮑菇",
+    category: "high-protein",
+    categoryName: "高蛋白肌力",
+    calories: 320,
+    protein: 38,
+    fat: 10,
     carbs: 6,
-    prepTime: 10,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["蘆筍", "蝦仁", "白蝦", "大蒜", "黑胡椒", "高纖低卡", "生酮"],
-    ingredients: [
-      { name: "無毒鮮蝦仁", amount: "10隻", isMain: true },
-      { name: "綠蘆筍", amount: "1把 (約100g，削老皮切段)", isMain: true },
-      { name: "大蒜", amount: "3瓣 (切片)", isMain: false },
-      { name: "橄欖油", amount: "1/2小匙", isMain: false },
-      { name: "海鹽與粗黑胡椒", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "熱鍋噴薄油，小火爆香蒜片。",
-      "倒入蘆筍段中大火翻炒 1.5 分鐘至翠綠斷生。",
-      "加入蝦仁同炒至兩面轉紅熟透（約 1.5 分鐘）。",
-      "關火加入海鹽與現磨黑胡椒翻拌均勻立即盛盤。"
-    ],
-    tips: "蘆筍富含天門冬胺酸與葉酸，有助消除疲勞、利尿排鈉消水腫！"
-  },
-
-  // ==================== 【低卡暖胃湯品】 ====================
-  {
-    id: "rec-005",
-    title: "番茄蔬菜牛肉豆腐飽足滾湯",
-    category: "soups",
-    categoryName: "低卡暖胃湯",
-    calories: 310,
-    protein: 32,
-    fat: 9,
-    carbs: 18,
-    prepTime: 25,
-    difficulty: "簡單",
-    servings: 2,
-    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
-    source: "小紅書健康減脂精選",
-    sourceUrl: "https://icook.tw",
-    tags: ["牛里肌肉", "牛番茄", "板豆腐", "洋蔥", "高麗菜", "低卡湯", "暖胃"],
-    ingredients: [
-      { name: "牛里肌肉片", amount: "160g (低脂部位)", isMain: true },
-      { name: "熟透牛番茄", amount: "2顆 (切塊)", isMain: true },
-      { name: "板豆腐", amount: "1塊 (切丁)", isMain: true },
-      { name: "高麗菜", amount: "100g (切撕塊)", isMain: true },
-      { name: "洋蔥", amount: "半顆 (切絲)", isMain: false },
-      { name: "薑片", amount: "3片", isMain: false },
-      { name: "海鹽與白胡椒", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "熱鍋噴少許油，放入洋蔥絲與番茄炒出紅油與酸甜香氣。",
-      "加入 600ml 清水或高湯，大火煮滾後轉中小火煮 8 分鐘讓番茄軟爛溶出茄紅素。",
-      "放入板豆腐丁與高麗菜續煮 3 分鐘。",
-      "最後下牛肉片快速涮煮至變色（約 40 秒），關火加鹽與白胡椒調味即可起鍋。"
-    ],
-    tips: "番茄先加熱翻炒能釋放更多脂溶性茄紅素，強效抗氧化助代謝！"
-  },
-  {
-    id: "rec-008",
-    title: "韓式泡菜豆腐海鮮嫩豆腐煲",
-    category: "soups",
-    categoryName: "低卡暖胃湯",
-    calories: 280,
-    protein: 30,
-    fat: 7,
-    carbs: 15,
     prepTime: 15,
     difficulty: "簡單",
     servings: 1,
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=800&q=80",
     source: "愛料理 iCook",
     sourceUrl: "https://icook.tw",
-    tags: ["泡菜", "嫩豆腐", "蝦仁", "鯛魚", "雞蛋", "韓式", "燃脂辣椒素"],
+    tags: ["增肌", "減脂", "低糖", "牛里肌", "牛肉", "杏鮑菇", "蒜頭", "黑胡椒", "高鐵"],
     ingredients: [
-      { name: "韓式泡菜", amount: "80g (無過多糖分)", isMain: true },
-      { name: "嫩豆腐", amount: "半盒 (約150g)", isMain: true },
-      { name: "鯛魚片", amount: "80g (切塊)", isMain: true },
-      { name: "鮮蝦仁", amount: "4隻", isMain: true },
-      { name: "雞蛋", amount: "1顆", isMain: true },
-      { name: "鴻禧菇", amount: "半包", isMain: false },
-      { name: "青蔥花", amount: "適量", isMain: false },
-      { name: "昆布高湯/水", amount: "350ml", isMain: false }
+      { name: "牛里肌肉", amount: "180g (切大丁)", isMain: true },
+      { name: "杏鮑菇", amount: "2根 (切滾刀塊)", isMain: true },
+      { name: "大蒜", amount: "4瓣 (切片)", isMain: false },
+      { name: "粗粒黑胡椒", amount: "1小匙", isMain: false },
+      { name: "橄欖油", amount: "1小匙", isMain: false }
     ],
     steps: [
-      "鍋內噴少許油，放入泡菜稍微炒香釋放風味。",
-      "加入高湯與鴻禧菇煮沸。",
-      "滑入切塊嫩豆腐、鯛魚片與蝦仁，煮約 3-4 分鐘至海鮮熟透。",
-      "起鍋前在中央打入一顆新鮮雞蛋，關火蓋鍋悶 1 分鐘，撒上蔥花。"
+      "熱鍋下一小匙油小火煎香蒜片至金黃酥脆後撈起。",
+      "轉大火下牛里肌丁快速翻煎 90 秒至焦香微脆。",
+      "加入杏鮑菇塊大火同炒至出汁軟嫩，起鍋撒回蒜酥片與現磨黑胡椒。"
     ],
-    tips: "泡菜中的辣椒素有助促進血液循環與基礎代謝，湯頭濃郁卻熱量極低！"
+    tips: "里肌肉油脂少，大火快煎保持內部 7 分熟最軟嫩多汁！"
   },
   {
-    id: "rec-013",
-    title: "鮮甜干貝金針菇豆腐減脂羹",
+    id: "rec-asia-004",
+    title: "鮮甜干貝花椰菜米海鮮減脂羹",
     category: "soups",
     categoryName: "低卡暖胃湯",
     calories: 190,
-    protein: 24,
+    protein: 26,
     fat: 3,
     carbs: 11,
     prepTime: 15,
@@ -845,58 +445,24 @@ const DEFAULT_RECIPES = [
     image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80",
     source: "Cookpad",
     sourceUrl: "https://cookpad.com/tw",
-    tags: ["生食級干貝", "板豆腐", "金針菇", "雞蛋", "無勾芡", "低卡濃湯"],
+    tags: ["減脂", "低脂", "低糖", "少鹽", "鮮干貝", "板豆腐", "金針菇", "雞蛋", "無勾芡", "低卡濃湯"],
     ingredients: [
-      { name: "鮮干貝", amount: "4顆 (或冷凍小干貝8顆)", isMain: true },
+      { name: "鮮干貝", amount: "5顆", isMain: true },
       { name: "板豆腐", amount: "100g (切小細丁)", isMain: true },
       { name: "金針菇", amount: "半包 (切小段)", isMain: true },
       { name: "雞蛋", amount: "1顆 (打散成蛋花)", isMain: true },
-      { name: "洋蔥", amount: "1/4顆 (切末增加自然甜稠感)", isMain: false },
-      { name: "白胡椒粉與海鹽", amount: "適量", isMain: false },
-      { name: "高湯/清水", amount: "400ml", isMain: false }
+      { name: "白胡椒粉與海鹽", amount: "少許", isMain: false },
+      { name: "清水", amount: "400ml", isMain: false }
     ],
     steps: [
-      "洋蔥末炒至透明出甜味，加入高湯煮滾。",
-      "下切細丁的金針菇與板豆腐，金針菇煮出自然濃稠質地（完全不需太白粉勾芡）。",
-      "放入鮮干貝微煮 1.5 分鐘保持鮮嫩。",
-      "轉圈倒入蛋液形成細緻滑順蛋花，加鹽與白胡椒粉調味即成美味無負擔羹湯。"
+      "高湯煮沸，下金針菇與板豆腐丁，金針菇天然多醣體煮出濃稠羹湯質地（零太白粉！）。",
+      "加入鮮干貝微煮 1.5 分鐘保持嫩甜。",
+      "轉圈倒入蛋液形成絲滑蛋花，撒上白胡椒粉即可出鍋。"
     ],
-    tips: "利用金針菇本身的膠質多醣體熬出天然羹湯濃稠感，完全省去澱粉勾芡！"
+    tips: "金針菇煮熱釋放天然黏稠膠質，完全省去澱粉勾芡熱量！"
   },
   {
-    id: "rec-022",
-    title: "清甜絲瓜鮮蛤蜊滾豆腐湯",
-    category: "soups",
-    categoryName: "低卡暖胃湯",
-    calories: 150,
-    protein: 16,
-    fat: 3,
-    carbs: 12,
-    prepTime: 12,
-    difficulty: "極簡易",
-    servings: 2,
-    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["絲瓜", "蛤蜊", "嫩豆腐", "薑絲", "消水腫", "極低熱量湯"],
-    ingredients: [
-      { name: "澎湖絲瓜", amount: "1條 (去皮切厚片)", isMain: true },
-      { name: "新鮮活蛤蜊", amount: "150g (吐沙備用)", isMain: true },
-      { name: "嫩豆腐", amount: "半盒 (切塊)", isMain: true },
-      { name: "嫩薑絲", amount: "1小撮", isMain: false },
-      { name: "米酒", amount: "1小匙", isMain: false },
-      { name: "海鹽與白胡椒", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "湯鍋加 400ml 水與薑絲煮滾。",
-      "下絲瓜片中火煮 3 分鐘至絲瓜微翠綠透明。",
-      "加入嫩豆腐塊與吐淨沙的鮮蛤蜊、淋上米酒。",
-      "煮至蛤蜊全開口立即關火（避免蛤肉變老縮水），蛤蜊自帶海鹽鮮味，試喝後斟酌加微量鹽調味。"
-    ],
-    tips: "絲瓜含水量高達 95% 且富含鉀離子，搭配鮮美蛤蜊是夏日必備排鈉消水腫神湯！"
-  },
-  {
-    id: "rec-034",
+    id: "rec-asia-005",
     title: "日式海帶芽鮭魚味噌嫩豆腐湯",
     category: "soups",
     categoryName: "低卡暖胃湯",
@@ -910,283 +476,24 @@ const DEFAULT_RECIPES = [
     image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
     source: "日本減醣食譜 Kurashiru",
     sourceUrl: "https://cookpad.com/tw",
-    tags: ["生鮮鮭魚", "嫩豆腐", "海帶芽", "味噌", "日式湯品", "發酵食品益生菌"],
+    tags: ["增肌", "減脂", "少鹽", "鮭魚", "嫩豆腐", "海帶芽", "味噌", "日式定食", "益生菌"],
     ingredients: [
       { name: "生鮮鮭魚切塊", amount: "100g", isMain: true },
       { name: "嫩豆腐", amount: "半盒 (切塊)", isMain: true },
-      { name: "乾燥海帶芽", amount: "1小撮 (泡水發開)", isMain: true },
+      { name: "海帶芽", amount: "1小撮 (發開)", isMain: true },
       { name: "日式低鹽味噌", amount: "1大匙", isMain: false },
       { name: "青蔥花", amount: "1大匙", isMain: false },
-      { name: "水/昆布柴魚高湯", amount: "400ml", isMain: false }
+      { name: "清水", amount: "400ml", isMain: false }
     ],
     steps: [
-      "高湯煮沸，放入嫩豆腐塊與鮭魚肉塊中火煮 3 分鐘至魚肉熟透。",
-      "加入發泡好的海帶芽煮 30 秒後轉微火（或熄火）。",
-      "以濾網將味噌融入湯汁中攪拌化開（切勿大火滾煮破壞味噌活菌酵母）。",
-      "盛碗撒上滿滿青蔥花即可溫暖享用。"
+      "水滾下嫩豆腐與鮭魚塊中火煮 3 分鐘至魚肉熟透。",
+      "加入海帶芽煮 30 秒後熄火。",
+      "以濾網溶化味噌（避免大火滾煮破壞酵母），撒上青蔥享用。"
     ],
-    tips: "味噌屬於天然發酵大豆食品，關火後溶入能完整保留益生菌活性，促進腸道健康！"
+    tips: "發酵味噌關火溶入能完整保留益生菌，暖胃護腸促代謝！"
   },
   {
-    id: "rec-035",
-    title: "鮮冬菇娃娃菜燉嫩雞胸清湯",
-    category: "soups",
-    categoryName: "低卡暖胃湯",
-    calories: 200,
-    protein: 32,
-    fat: 3,
-    carbs: 9,
-    prepTime: 18,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["雞胸肉", "娃娃菜", "鮮香菇", "枸杞", "清甜湯", "低卡消脂"],
-    ingredients: [
-      { name: "雞胸肉", amount: "150g (切厚片抓少許米酒)", isMain: true },
-      { name: "娃娃菜", amount: "2株 (切大段)", isMain: true },
-      { name: "鮮香菇", amount: "3朵 (刻十字花)", isMain: true },
-      { name: "枸杞", amount: "8顆", isMain: false },
-      { name: "薑片", amount: "2片", isMain: false },
-      { name: "海鹽與白胡椒", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "鍋內加 450ml 水、薑片與香菇大火煮滾 3 分鐘煮出香菇甘醇精華。",
-      "加入娃娃菜段煮 4 分鐘至菜梗軟甜透明。",
-      "滑入雞胸肉片以小火浸煮 2 分鐘（維持水微滾魚眼泡），保持雞肉極致軟嫩。",
-      "起鍋前撒入枸杞與少許海鹽調味即可。"
-    ],
-    tips: "娃娃菜自帶天然甜味，加上鮮香菇多醣體，不需加任何味精湯頭就極其甘美鮮甜！"
-  },
-  {
-    id: "rec-036",
-    title: "冬瓜干貝排毒消水腫清湯",
-    category: "soups",
-    categoryName: "低卡暖胃湯",
-    calories: 120,
-    protein: 15,
-    fat: 1.5,
-    carbs: 11,
-    prepTime: 15,
-    difficulty: "極簡易",
-    servings: 2,
-    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["冬瓜", "干貝", "薑絲", "消水腫", "排鈉利尿", "百卡超低熱量湯"],
-    ingredients: [
-      { name: "冬瓜", amount: "200g (去皮切厚薄片)", isMain: true },
-      { name: "鮮干貝/小干貝", amount: "6-8顆", isMain: true },
-      { name: "嫩薑絲", amount: "1小把", isMain: false },
-      { name: "米酒", amount: "1小匙", isMain: false },
-      { name: "芹菜末/蔥花", amount: "1大匙", isMain: false },
-      { name: "海鹽與白胡椒", amount: "適量", isMain: false }
-    ],
-    steps: [
-      "湯鍋加水 500ml 與薑絲、冬瓜片大火煮沸。",
-      "轉中小火煮 6-8 分鐘至冬瓜片呈現半透明軟透狀態。",
-      "加入干貝與一小匙米酒續煮 1.5 分鐘。",
-      "關火加入海鹽調味，起鍋撒上芹菜末與白胡椒粉即可。"
-    ],
-    tips: "冬瓜是含水量極高且高鉀低鈉的刮油排毒聖品，消水腫效果極佳！"
-  },
-
-  // ==================== 【超快即食 / 懶人免開火 / 氣炸微波】 ====================
-  {
-    id: "rec-003",
-    title: "日式涼拌柴魚豆腐佐水煮蛋",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 230,
-    protein: 22,
-    fat: 10,
-    carbs: 6,
-    prepTime: 8,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1546069901-d00d238260b4?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["板豆腐", "嫩豆腐", "雞蛋", "柴魚片", "高蛋白", "免開火"],
-    ingredients: [
-      { name: "板豆腐", amount: "150g (或嫩豆腐)", isMain: true },
-      { name: "雞蛋", amount: "1顆 (水煮或溏心蛋)", isMain: true },
-      { name: "柴魚片", amount: "1小包 (約3g)", isMain: false },
-      { name: "日式和風醬汁", amount: "1大匙 (低鈉)", isMain: false },
-      { name: "青蔥花", amount: "適量", isMain: false },
-      { name: "熟白芝麻", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "豆腐以飲用水沖洗後瀝乾，切塊擺入碗中。",
-      "水煮蛋剝殼對切，擺放在豆腐旁。",
-      "淋上低鈉日式和風醬油。",
-      "鋪上滿滿的柴魚片、蔥花與白芝麻即完成。"
-    ],
-    tips: "板豆腐的蛋白質與鈣質含量比嫩豆腐更高，飽足感也更持久！"
-  },
-  {
-    id: "rec-010",
-    title: "高纖無糖肉桂蘋果隔夜燕麥碗",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 270,
-    protein: 18,
-    fat: 6,
-    carbs: 38,
-    prepTime: 5,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["大燕麥片", "希臘優格", "無糖豆漿", "蘋果", "奇亞籽", "肉桂粉", "高纖早餐"],
-    ingredients: [
-      { name: "傳統大燕麥片", amount: "40g (非即溶)", isMain: true },
-      { name: "無糖希臘優格", amount: "80g", isMain: true },
-      { name: "無糖高纖豆漿/杏仁奶", amount: "80ml", isMain: true },
-      { name: "奇亞籽", amount: "1小匙 (約5g)", isMain: false },
-      { name: "新鮮蘋果丁", amount: "半顆", isMain: false },
-      { name: "純肉桂粉", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "在玻璃罐中加入燕麥片、奇亞籽、無糖豆漿與希臘優格充分攪拌均勻。",
-      "蓋上蓋子放入冰箱冷藏浸泡至少 4 小時（或前一晚放置隔夜）。",
-      "早晨取出時燕麥已吸飽水分如布丁般濃稠，頂部鋪上切丁新鮮蘋果並灑上肉桂粉即可享用。"
-    ],
-    tips: "隔夜燕麥富含抗性澱粉與水溶性膳食纖維，升糖指數低，是維持整早平穩血糖的極品減脂早餐。"
-  },
-  {
-    id: "rec-014",
-    title: "涼拌低卡手撕雞絲佐小黃瓜",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 220,
-    protein: 34,
-    fat: 5,
-    carbs: 6,
-    prepTime: 10,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["雞胸肉", "小黃瓜", "蒜頭", "辣椒", "花椒油", "涼拌菜", "常備菜"],
-    ingredients: [
-      { name: "雞胸肉", amount: "160g (水煮熟)", isMain: true },
-      { name: "小黃瓜", amount: "1根 (拍碎切段)", isMain: true },
-      { name: "大蒜", amount: "2瓣 (壓成泥)", isMain: false },
-      { name: "烏醋/白醋", amount: "1大匙", isMain: false },
-      { name: "薄鹽醬油", amount: "1小匙", isMain: false },
-      { name: "香油/花椒油", amount: "1/3小匙", isMain: false },
-      { name: "香菜", amount: "少許 (依喜好)", isMain: false }
-    ],
-    steps: [
-      "水煮雞胸肉放涼後用手撕成細絲備用。",
-      "小黃瓜用刀背拍扁再切段（拍碎更易吸附醬汁）。",
-      "取一料理碗，混合蒜泥、醋、醬油與少許香油調成靈魂低卡涼拌醬。",
-      "倒入雞絲與小黃瓜抓拌均勻，冷藏 15 分鐘更加入味爽口。"
-    ],
-    tips: "小黃瓜拍碎而非切塊，能讓醬汁更深層滲透，酸爽開胃又高蛋白！"
-  },
-  {
-    id: "rec-016",
-    title: "免油炸金黃香煎板豆腐塊佐蔥鹽醬",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 210,
-    protein: 20,
-    fat: 10,
-    carbs: 5,
-    prepTime: 10,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["板豆腐", "青蔥", "蔥鹽", "高鈣", "素食", "高植物蛋白"],
-    ingredients: [
-      { name: "傳統老板豆腐", amount: "200g (切厚方塊)", isMain: true },
-      { name: "青蔥花", amount: "2大匙", isMain: false },
-      { name: "海鹽", amount: "1/2小匙", isMain: false },
-      { name: "香油/橄欖油", amount: "1小匙", isMain: false },
-      { name: "黑白胡椒", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "板豆腐用廚房紙巾包裹壓重物 5 分鐘排出多餘水分後切厚塊。",
-      "將青蔥花、海鹽、少許香油、黑胡椒調勻成自製低卡蔥鹽醬。",
-      "平底鍋噴少許油，將豆腐塊放入中火慢煎至四面呈現金黃酥脆外皮。",
-      "起鍋盛盤，上面鋪上滿滿的靈魂蔥鹽醬即可開吃。"
-    ],
-    tips: "事先排出水分能讓豆腐下鍋後外皮煎得更脆，外酥內嫩如同老皮嫩肉！"
-  },
-  {
-    id: "rec-021",
-    title: "無油酸辣檸檬泰式涼拌鮮蝦",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 180,
-    protein: 28,
-    fat: 2,
-    carbs: 8,
-    prepTime: 10,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["蝦仁", "白蝦", "檸檬", "洋蔥", "香菜", "小番茄", "泰式", "無油"],
-    ingredients: [
-      { name: "白蝦/蝦仁", amount: "10-12隻 (燙熟冰鎮)", isMain: true },
-      { name: "紫洋蔥", amount: "1/4顆 (切細絲泡冰水)", isMain: true },
-      { name: "小番茄", amount: "6顆 (對半切)", isMain: true },
-      { name: "新鮮檸檬汁", amount: "2大匙", isMain: false },
-      { name: "魚露", amount: "1大匙 (低鈉)", isMain: false },
-      { name: "赤藻糖醇/代糖", amount: "1/2小匙", isMain: false },
-      { name: "蒜末與辣椒碎", amount: "適量", isMain: false },
-      { name: "新鮮香菜", amount: "1把", isMain: false }
-    ],
-    steps: [
-      "蝦仁燙熟立刻泡入冰水中保持爽脆緊實。",
-      "洋蔥絲泡冰水 5 分鐘去除辛辣嗆味後瀝乾。",
-      "將檸檬汁、魚露、赤藻糖醇、蒜末、辣椒碎調成泰式涼拌無油醬汁。",
-      "所有食材放入大碗中，淋上醬汁充分抓拌均勻，撒上香菜即可享用。"
-    ],
-    tips: "零額外添加油脂，完全靠新鮮檸檬與天然辛香料提味，酸辣爽口超開胃！"
-  },
-  {
-    id: "rec-024",
-    title: "微波爐無油版韓式辣醬蒸豆腐嫩蛋",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 195,
-    protein: 21,
-    fat: 8,
-    carbs: 6,
-    prepTime: 5,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1546069901-d00d238260b4?auto=format&fit=crop&w=800&q=80",
-    source: "小紅書健康減脂精選",
-    sourceUrl: "https://icook.tw",
-    tags: ["板豆腐", "嫩豆腐", "雞蛋", "微波爐", "懶人料理", "5分鐘上菜"],
-    ingredients: [
-      { name: "嫩豆腐", amount: "半盒 (約150g)", isMain: true },
-      { name: "雞蛋", amount: "2顆", isMain: true },
-      { name: "韓式低糖辣醬/生抽", amount: "1小匙", isMain: false },
-      { name: "青蔥花", amount: "1大匙", isMain: false },
-      { name: "開水", amount: "50ml", isMain: false }
-    ],
-    steps: [
-      "豆腐在可微波碗中用叉子壓成碎塊。",
-      "打入 2 顆雞蛋與 50ml 水攪拌均勻。",
-      "淋上 1 小匙韓式辣醬或生抽醬油拌勻，撒上蔥花。",
-      "碗口覆蓋微波保鮮膜（或倒扣小盤子），微波爐中高火加熱 3.5 - 4 分鐘至蛋液凝固即成嫩滑豆腐蒸蛋！"
-    ],
-    tips: "完全不需要起油鍋，下班後 5 分鐘就能搞定高蛋白減脂宵夜或晚餐！"
-  },
-  {
-    id: "rec-037",
+    id: "rec-asia-006",
     title: "氣炸薄鹽多汁挪威鯖魚排",
     category: "quick-meal",
     categoryName: "超快即食",
@@ -1198,345 +505,85 @@ const DEFAULT_RECIPES = [
     difficulty: "極簡易",
     servings: 1,
     image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["鯖魚", "青花魚", "檸檬", "優質油脂", "氣炸鍋", "日式定食"],
-    ingredients: [
-      { name: "薄鹽鯖魚菲力", amount: "1片 (約150g)", isMain: true },
-      { name: "新鮮檸檬角", amount: "1塊", isMain: false },
-      { name: "日式七味粉/黑胡椒", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "鯖魚菲力以廚房紙巾吸乾水分，魚皮表面劃斜十字紋。",
-      "將鯖魚魚皮朝上平鋪於氣炸鍋炸籃中。",
-      "設定 190°C 氣炸 10 分鐘，最後以 200°C 烤 2 分鐘逼出魚油使魚皮香脆金黃。",
-      "起鍋擠上新鮮檸檬汁並灑少許七味粉即可享用。"
-    ],
-    tips: "鯖魚自帶極豐富天然 Omega-3 DHA/EPA 好油脂，氣炸能逼出多餘油脂且魚皮酥脆無比！"
-  },
-  {
-    id: "rec-038",
-    title: "微波爐高蛋白日式鮮蝦茶碗蒸",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 140,
-    protein: 18,
-    fat: 4,
-    carbs: 3,
-    prepTime: 6,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
     source: "日本減醣食譜 Kurashiru",
     sourceUrl: "https://cookpad.com/tw",
-    tags: ["雞蛋", "鮮蝦仁", "鮮香菇", "日式高湯", "微波爐", "低卡蒸蛋"],
+    tags: ["增肌", "減脂", "低糖", "鯖魚", "青花魚", "檸檬汁", "氣炸鍋", "日式定食", "好油脂"],
     ingredients: [
-      { name: "新鮮雞蛋", amount: "2顆", isMain: true },
-      { name: "鮮蝦仁", amount: "3隻", isMain: true },
-      { name: "鮮香菇", amount: "半朵 (切薄片)", isMain: false },
-      { name: "柴魚高湯/溫開水", amount: "200ml (水與蛋液比例約 2:1)", isMain: false },
-      { name: "薄鹽白醬油", amount: "1/2小匙", isMain: false }
+      { name: "薄鹽鯖魚菲力", amount: "1片 (約150g)", isMain: true },
+      { name: "檸檬角", amount: "1塊", isMain: false },
+      { name: "七味粉/黑胡椒", amount: "少許", isMain: false }
     ],
     steps: [
-      "雞蛋輕柔打散，加入柴魚高湯與白醬油攪勻後過篩倒入耐熱碗中（過篩可去除氣泡極致滑嫩）。",
-      "碗中放入鮮蝦仁與香菇片。",
-      "碗口覆蓋微波保鮮膜，微波爐設定「解凍」或「低功率（200-300W）」微波 4.5 分鐘至凝固。",
-      "表面滑如布丁鏡面，出爐滴一滴香油即可開吃！"
+      "鯖魚菲力表面劃十字斜紋。",
+      "氣炸鍋 190°C 烤 10 分鐘，最後以 200°C 烤 2 分鐘逼出香脆魚油。",
+      "擠上新鮮檸檬汁去膩，外酥內嫩多汁！"
     ],
-    tips: "微波茶碗蒸的關鍵是「低功率慢熟」與「蛋液過篩」，就能做出如同日料店的絲滑茶碗蒸！"
+    tips: "氣炸能逼出鯖魚多餘油脂，保留深海天然好油 DHA & EPA！"
   },
   {
-    id: "rec-039",
-    title: "微波5分鐘高蛋白無麵粉燕麥香蕉蛋糕",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 240,
-    protein: 16,
-    fat: 5,
-    carbs: 32,
-    prepTime: 5,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["香蕉", "大燕麥片", "雞蛋", "無加糖可可粉", "微波爐", "減脂甜點", "無麵粉"],
-    ingredients: [
-      { name: "熟透香蕉", amount: "半根 (用叉子壓成泥)", isMain: true },
-      { name: "大燕麥片", amount: "30g", isMain: true },
-      { name: "雞蛋", amount: "1顆", isMain: true },
-      { name: "無糖純可可粉", amount: "1小匙", isMain: false },
-      { name: "無糖豆漿/牛奶", amount: "20ml", isMain: false },
-      { name: "無鋁泡打粉", amount: "1/4小匙 (使口感鬆軟)", isMain: false }
-    ],
-    steps: [
-      "在馬克杯中將香蕉用叉子壓成細緻泥狀。",
-      "打入雞蛋，加入燕麥片、可可粉、豆漿與泡打粉攪拌均勻。",
-      "放入微波爐中高火加熱 90 秒 - 2 分鐘，看見蛋糕蓬鬆膨起且表面乾爽即可。",
-      "直接用湯匙挖著吃，享受熱騰騰又飽足的高蛋白熔岩布朗尼口感！"
-    ],
-    tips: "熟香蕉自帶天然果糖甜味完全不需額外加糖，無油無麵粉卻有濃郁巧克力蛋糕口感！"
-  },
-  {
-    id: "rec-040",
-    title: "低脂無糖優格酪梨高蛋白鮮蝦全麥捲",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 260,
-    protein: 24,
-    fat: 8,
-    carbs: 22,
-    prepTime: 8,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
-    source: "健身廚房",
-    sourceUrl: "https://icook.tw",
-    tags: ["全麥餅皮", "蝦仁", "酪梨", "希臘優格", "綜合生菜", "減脂捲餅", "外帶野餐便當"],
-    ingredients: [
-      { name: "全麥墨西哥餅皮", amount: "1張 (約40g)", isMain: true },
-      { name: "熟鮮蝦仁", amount: "6隻", isMain: true },
-      { name: "成熟酪梨丁", amount: "30g", isMain: true },
-      { name: "無糖希臘優格", amount: "1大匙 (替代高熱量美乃滋)", isMain: false },
-      { name: "綜合生菜葉", amount: "30g", isMain: false },
-      { name: "黑胡椒與檸檬汁", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "全麥餅皮乾鍋微烘 20 秒至溫熱柔軟。",
-      "將希臘優格加入少許檸檬汁與黑胡椒調勻成清爽抹醬，抹在餅皮中央。",
-      "依序鋪上生菜葉、熟蝦仁與酪梨丁。",
-      "將餅皮兩端折起，緊緊捲成圓柱狀，斜切對半即可享用！"
-    ],
-  },
-  // ==================== 【增肌 / 減脂 / 低糖 / 低脂 / 少鹽 / 減鈉 專題】 ====================
-  {
-    id: "rec-041",
-    title: "藜麥嫩烤牛板腱佐烤彩椒",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 330,
-    protein: 40,
-    fat: 8,
-    carbs: 24,
-    prepTime: 18,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80",
-    source: "健身廚房",
-    sourceUrl: "https://icook.tw",
-    tags: ["增肌", "減脂", "低糖", "少鹽", "牛板腱", "牛肉", "三色藜麥", "甜椒", "彩椒", "高鐵", "複合碳水"],
-    ingredients: [
-      { name: "牛板腱肉排", amount: "180g (低脂少筋部位)", isMain: true },
-      { name: "熟三色藜麥", amount: "60g", isMain: true },
-      { name: "紅黃甜椒", amount: "各半顆 (切塊)", isMain: true },
-      { name: "大蒜", amount: "3瓣", isMain: false },
-      { name: "粗粒黑胡椒", amount: "1小匙", isMain: false },
-      { name: "義大利香草", amount: "1/2小匙", isMain: false },
-      { name: "橄欖油", amount: "1/2小匙", isMain: false }
-    ],
-    steps: [
-      "牛板腱肉以黑胡椒、蒜末與義式香草抓醃 10 分鐘（不加鹽以天然香草提味）。",
-      "氣炸鍋或烤箱鋪上甜椒塊，頂部放上牛板腱排。",
-      "以 190°C 烤 10-12 分鐘至牛肉 7 分熟軟嫩多汁。",
-      "盤中盛入高纖低GI的熟藜麥，擺上切片牛排與烤甜椒即成完美增肌大餐！"
-    ],
-    tips: "牛板腱油脂極低且含豐富肌酸與血基質鐵，搭配藜麥全蛋白是重訓增肌的最佳黃金組合！"
-  },
-  {
-    id: "rec-042",
-    title: "高蛋白鷹嘴豆彩蔬燉雞胸肉",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 310,
-    protein: 38,
-    fat: 5,
-    carbs: 28,
-    prepTime: 20,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["增肌", "減脂", "低脂", "低糖", "少鹽", "雞胸肉", "熟鷹嘴豆", "牛番茄", "青花菜", "雙蛋白"],
-    ingredients: [
-      { name: "雞胸肉", amount: "160g (切大丁)", isMain: true },
-      { name: "熟鷹嘴豆", amount: "60g", isMain: true },
-      { name: "熟透牛番茄", amount: "1顆 (切丁)", isMain: true },
-      { name: "青花菜", amount: "60g", isMain: true },
-      { name: "洋蔥", amount: "1/4顆 (切丁)", isMain: false },
-      { name: "薑黃粉", amount: "1/2小匙", isMain: false },
-      { name: "黑胡椒", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "熱鍋噴極少油，炒香洋蔥丁與番茄丁至釋放天然酸甜茄汁。",
-      "加入鷹嘴豆、薑黃粉與 150ml 清水煮沸燉煮 5 分鐘。",
-      "加入雞胸肉丁與青花菜中火燜煮 4 分鐘至雞肉全熟軟嫩。",
-      "撒上現磨黑胡椒即可起鍋，完全不需額外加糖加鹽就很濃郁美味！"
-    ],
-    tips: "鷹嘴豆提供慢速消化複合碳水與植物蛋白，結合雞胸肉動植物雙重胺基酸，延長飽足感又抗發炎！"
-  },
-  {
-    id: "rec-043",
-    title: "蒜香無油煎鮪魚排佐紫地瓜",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 290,
-    protein: 42,
-    fat: 3,
-    carbs: 23,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["增肌", "減脂", "低脂", "少鹽", "生鮮鮪魚", "紫地瓜", "地瓜", "蒜頭", "超高蛋白", "無油"],
-    ingredients: [
-      { name: "生鮮鮪魚排/生魚片級赤身", amount: "160g", isMain: true },
-      { name: "紫地瓜", amount: "100g (蒸熟切塊)", isMain: true },
-      { name: "大蒜", amount: "3瓣 (切片)", isMain: false },
-      { name: "檸檬汁", amount: "1小匙", isMain: false },
-      { name: "海鹽與黑胡椒", amount: "極微量", isMain: false }
-    ],
-    steps: [
-      "鮪魚排表面抹上檸檬汁、蒜片與現磨黑胡椒醃 5 分鐘。",
-      "不沾平底鍋大火燒熱（不加油），下鮪魚排每面快速高溫乾煎 45-60 秒（保持中心粉嫩半熟生鮪魚炙燒口感 Tataki）。",
-      "起鍋切厚片，擺上高花青素的蒸紫地瓜塊即可食用。"
-    ],
-    tips: "鮪魚赤身是極限純蛋白質之王（每100g高達28g蛋白質且幾乎零脂肪），炙燒保留魚肉軟嫩鮮甜！"
-  },
-  {
-    id: "rec-044",
-    title: "雙菇魔芋絲涼拌手撕雞胸",
-    category: "quick-meal",
-    categoryName: "超快即食",
-    calories: 180,
-    protein: 32,
-    fat: 3,
-    carbs: 6,
-    prepTime: 10,
-    difficulty: "極簡易",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80",
-    source: "小紅書健康減脂精選",
-    sourceUrl: "https://icook.tw",
-    tags: ["減脂", "低糖", "低脂", "少鹽", "雞胸肉", "蒟蒻絲", "金針菇", "鴻禧菇", "小黃瓜", "負卡排毒", "超低卡"],
-    ingredients: [
-      { name: "舒肥雞胸肉", amount: "150g (撕成細絲)", isMain: true },
-      { name: "蒟蒻絲", amount: "100g (汆燙瀝乾)", isMain: true },
-      { name: "金針菇/鴻禧菇", amount: "80g (燙熟放涼)", isMain: true },
-      { name: "小黃瓜絲", amount: "半條", isMain: false },
-      { name: "烏醋/蘋果醋", amount: "1.5大匙", isMain: false },
-      { name: "薄鹽生抽", amount: "1/2小匙", isMain: false },
-      { name: "白芝麻與辣椒圈", amount: "少許", isMain: false }
-    ],
-    steps: [
-      "蒟蒻絲與雙菇沸水汆燙 1 分鐘撈起冰鎮瀝乾。",
-      "大碗中加入醋、微量生抽調勻成微酸解膩低卡醬汁。",
-      "加入手撕雞胸肉、蒟蒻絲、雙菇與小黃瓜絲充分抓拌。",
-      "撒上白芝麻即可大口享用超巨大份量卻只有 180 卡的極致飽足減脂餐！"
-    ],
-    tips: "蒟蒻與菇類富含水溶性膳食纖維，在大腸中形成飽足屏障，熱量幾乎為零！"
-  },
-  {
-    id: "rec-045",
-    title: "生菜包香炒彩椒雞肉鬆",
+    id: "rec-asia-007",
+    title: "韓式泡菜炒雙色花椰菜米無米飯",
     category: "low-carb",
     categoryName: "極低碳減醣",
-    calories: 220,
-    protein: 34,
-    fat: 6,
-    carbs: 7,
-    prepTime: 12,
-    difficulty: "簡單",
-    servings: 1,
-    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
-    source: "愛料理 iCook",
-    sourceUrl: "https://icook.tw",
-    tags: ["低糖", "減醣", "減脂", "低脂", "少鹽", "雞胸絞肉", "雞胸肉", "美生菜", "彩椒", "荸薺", "無米蝦鬆風", "生酮"],
-    ingredients: [
-      { name: "雞胸絞肉/雞肉丁", amount: "160g", isMain: true },
-      { name: "結球美生菜/蘿蔓生菜", amount: "4大片 (洗淨成碗狀)", isMain: true },
-      { name: "彩椒丁", amount: "40g", isMain: true },
-      { name: "洋蔥末", amount: "20g", isMain: false },
-      { name: "白胡椒粉", amount: "1/2小匙", isMain: false },
-      { name: "薄鹽醬油", amount: "1/2小匙", isMain: false },
-      { name: "橄欖油", amount: "1/2小匙", isMain: false }
-    ],
-    steps: [
-      "熱鍋噴少許油，炒香洋蔥末與雞肉丁至肉質乾爽香酥。",
-      "加入彩椒丁大火翻炒 1 分鐘保持爽脆。",
-      "加少許白胡椒粉與薄鹽醬油快速翻勻起鍋。",
-      "用冰涼清脆的生菜葉包裹熱騰騰的雞肉鬆一口咬下，清甜爽口無負擔！"
-    ],
-    tips: "以脆口生菜葉代替傳統油條或餅皮，零麵粉極低糖，口感豐富脆甜！"
-  },
-  {
-    id: "rec-046",
-    title: "櫛瓜鮮蝦無麵粉低醣烘蛋塔",
-    category: "low-carb",
-    categoryName: "極低碳減醣",
-    calories: 210,
+    calories: 230,
     protein: 22,
-    fat: 10,
-    carbs: 5,
-    prepTime: 15,
+    fat: 7,
+    carbs: 15,
+    prepTime: 12,
     difficulty: "簡單",
     servings: 1,
-    image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80",
-    source: "健身廚房",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["低糖", "減醣", "減脂", "少鹽", "櫛瓜", "鮮蝦仁", "雞蛋", "低脂起司", "無麵粉", "生酮", "氣炸鍋"],
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+    source: "愛料理 iCook",
+    sourceUrl: "https://icook.tw",
+    tags: ["減脂", "低糖", "減醣", "白花椰菜米", "泡菜", "雞胸肉", "雞蛋", "韓式料理", "無澱粉"],
     ingredients: [
-      { name: "綠櫛瓜", amount: "1根 (切薄圓片)", isMain: true },
-      { name: "鮮蝦仁", amount: "6隻 (切丁)", isMain: true },
-      { name: "雞蛋", amount: "2顆 (打散)", isMain: true },
-      { name: "無糖豆漿/牛奶", amount: "20ml", isMain: false },
-      { name: "黑胡椒粒", amount: "少許", isMain: false },
-      { name: "低脂起司絲", amount: "10g", isMain: false }
+      { name: "白花椰菜米", amount: "180g", isMain: true },
+      { name: "韓式泡菜", amount: "60g (切碎)", isMain: true },
+      { name: "雞胸肉丁", amount: "80g", isMain: true },
+      { name: "太陽蛋/煎蛋", amount: "1顆", isMain: true },
+      { name: "海苔絲", amount: "少許", isMain: false },
+      { name: "香油", amount: "1/3小匙", isMain: false }
     ],
     steps: [
-      "在馬芬模具或耐熱烤碗底部排入櫛瓜片作為天然塔皮。",
-      "均勻放入蝦仁丁。",
-      "蛋液加入豆漿與黑胡椒打勻，緩緩倒入模具中約 8 分滿。",
-      "頂部撒上微量起司絲，放入氣炸鍋 170°C 烤 12-14 分鐘至金黃蓬鬆熟透。"
+      "熱鍋薄油炒香雞胸丁與泡菜碎。",
+      "加入花椰菜米大火翻炒 3 分鐘至水分收乾焦香。",
+      "盛盤放上一顆半熟蛋與海苔絲，劃破蛋黃拌勻超銷魂！"
     ],
-    tips: "零麵粉低升糖，利用櫛瓜天然甜味與鮮蝦鹹鮮，完全不需要加鹽！"
+    tips: "花椰菜米吸飽泡菜天然發酵酸辣汁，口感如石鍋拌飯卻零澱粉！"
   },
   {
-    id: "rec-047",
-    title: "檸香清蒸鱸魚菲力佐豆腐薑絲",
+    id: "rec-asia-008",
+    title: "泰式九層塔打拋舒肥雞胸肉",
     category: "high-protein",
     categoryName: "高蛋白肌力",
-    calories: 210,
-    protein: 36,
-    fat: 4,
-    carbs: 4,
+    calories: 250,
+    protein: 38,
+    fat: 6,
+    carbs: 8,
     prepTime: 12,
-    difficulty: "極簡易",
+    difficulty: "簡單",
     servings: 1,
-    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80",
-    source: "楊桃美食網",
-    sourceUrl: "https://www.ytower.com.tw",
-    tags: ["低脂", "少鹽", "減鈉", "增肌", "減脂", "金目鱸魚", "鱸魚", "嫩豆腐", "檸檬汁", "薑絲", "清蒸", "無油"],
+    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80",
+    source: "愛料理 iCook",
+    sourceUrl: "https://icook.tw",
+    tags: ["增肌", "減脂", "低糖", "低脂", "雞胸絞肉", "雞胸肉", "九層塔", "牛番茄", "大蒜", "泰式打拋"],
     ingredients: [
-      { name: "金目鱸魚菲力", amount: "180g", isMain: true },
-      { name: "嫩豆腐", amount: "半盒 (切厚片鋪底)", isMain: true },
-      { name: "新鮮檸檬汁", amount: "1大匙 (提鮮減鹽)", isMain: false },
-      { name: "嫩薑絲與蔥段", amount: "1小把", isMain: false },
-      { name: "米酒", amount: "1小匙", isMain: false },
-      { name: "白胡椒粉", amount: "少許", isMain: false }
+      { name: "雞胸肉丁/絞肉", amount: "180g", isMain: true },
+      { name: "九層塔", amount: "1大把", isMain: true },
+      { name: "牛番茄", amount: "半顆 (切丁)", isMain: true },
+      { name: "蒜末與辣椒", amount: "各1小匙", isMain: false },
+      { name: "魚露", amount: "1小匙", isMain: false },
+      { name: "薄鹽醬油", amount: "1小匙", isMain: false }
     ],
     steps: [
-      "盤底平鋪嫩豆腐片，上面擺上洗淨吸乾水分的鱸魚菲力。",
-      "魚身鋪上薑絲、蔥段，淋上一小匙米酒。",
-      "電鍋外鍋加半杯水（或蒸鍋大火沸水）蒸 8 分鐘至熟透。",
-      "出鍋淋上新鮮檸檬汁與現磨白胡椒粉即可開動。"
+      "鍋內爆香蒜末與辣椒碎，下雞肉丁大火炒至變白。",
+      "加入番茄丁、魚露與醬油翻炒入味。",
+      "關火投入大把九層塔利用餘溫翻勻起鍋。"
     ],
-    tips: "新鮮檸檬的果酸能自然帶出魚肉鮮甜，完全不需要加一滴油或醬油，極低鈉又高蛋白！"
+    tips: "以低脂雞胸肉丁取代肥豬絞肉，熱量大砍半，高蛋白酸辣開胃！"
   },
   {
-    id: "rec-048",
+    id: "rec-asia-009",
     title: "冬瓜干貝芹菜高鉀排鈉消水腫湯",
     category: "soups",
     categoryName: "低卡暖胃湯",
@@ -1550,85 +597,50 @@ const DEFAULT_RECIPES = [
     image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
     source: "愛料理 iCook",
     sourceUrl: "https://icook.tw",
-    tags: ["少鹽", "減鈉", "減脂", "低脂", "低糖", "冬瓜", "生食級干貝", "干貝", "芹菜", "高鉀排鈉", "消水腫", "DASH飲食"],
+    tags: ["少鹽", "減鈉", "減脂", "低脂", "低糖", "冬瓜", "生食級干貝", "干貝", "芹菜", "消水腫", "DASH飲食"],
     ingredients: [
-      { name: "新鮮冬瓜", amount: "200g (去皮切厚片)", isMain: true },
+      { name: "冬瓜", amount: "200g (去皮切片)", isMain: true },
       { name: "鮮干貝", amount: "6顆", isMain: true },
-      { name: "芹菜末", amount: "2大匙 (富含高鉀)", isMain: true },
+      { name: "芹菜末", amount: "2大匙 (高鉀)", isMain: true },
       { name: "薑絲", amount: "1小撮", isMain: false },
       { name: "白胡椒粉", amount: "少許", isMain: false },
       { name: "清水", amount: "500ml", isMain: false }
     ],
     steps: [
-      "鍋內加水 500ml 與薑絲、冬瓜大火煮沸，轉中小火煮 8 分鐘至冬瓜透明軟嫩。",
-      "滑入鮮干貝續煮 1.5 分鐘至鮮味融於湯中。",
-      "關火撒入芹菜末與白胡椒粉即可出鍋。"
+      "水 500ml 加薑絲與冬瓜煮沸，中小火煮 8 分鐘至冬瓜透明。",
+      "下鮮干貝續煮 1.5 分鐘溶出天然海鮮甘甜。",
+      "關火撒芹菜末與白胡椒粉即可出鍋。"
     ],
-    tips: "冬瓜與芹菜為天然高鉀食材，干貝自帶純天然海味鮮甜，不需加鹽就能啟動體內鈉鉀平衡、強效消水腫！"
+    tips: "冬瓜與芹菜高鉀排鈉，干貝自帶天然海鹽鮮甜，不加一粒鹽排腫力MAX！"
   },
   {
-    id: "rec-049",
-    title: "檸檬迷迭香清烤鮭魚時蔬 (少鹽減鈉版)",
-    category: "high-protein",
-    categoryName: "高蛋白肌力",
-    calories: 320,
-    protein: 32,
-    fat: 16,
-    carbs: 8,
-    prepTime: 18,
-    difficulty: "簡單",
+    id: "rec-asia-010",
+    title: "微波5分鐘高蛋白無麵粉燕麥香蕉蛋糕",
+    category: "quick-meal",
+    categoryName: "超快即食",
+    calories: 240,
+    protein: 16,
+    fat: 5,
+    carbs: 32,
+    prepTime: 5,
+    difficulty: "極簡易",
     servings: 1,
-    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80",
-    source: "Cookpad",
-    sourceUrl: "https://cookpad.com/tw",
-    tags: ["少鹽", "減鈉", "低糖", "增肌", "減脂", "鮭魚", "玉米筍", "小番茄", "檸檬", "迷迭香", "Omega3", "DASH飲食"],
-    ingredients: [
-      { name: "生鮮鮭魚菲力", amount: "150g", isMain: true },
-      { name: "新鮮檸檬片", amount: "3片", isMain: true },
-      { name: "小番茄", amount: "6顆", isMain: true },
-      { name: "玉米筍", amount: "3根", isMain: false },
-      { name: "新鮮迷迭香/百里香", amount: "1小枝", isMain: false },
-      { name: "現磨粗黑胡椒", amount: "1/2小匙", isMain: false }
-    ],
-    steps: [
-      "烘焙紙上鋪上玉米筍與小番茄。",
-      "鮭魚菲力放在時蔬上方，表面撒上現磨黑胡椒。",
-      "頂部鋪滿新鮮檸檬片與迷迭香草枝。",
-      "烘焙紙包裹密封，氣炸鍋或烤箱 180°C 烤 15 分鐘出爐。"
-    ],
-    tips: "完全不加一粒鹽！利用檸檬酸香與迷迭香木質芬芳完美引出鮭魚鮮脂甜味，減鈉护心血管首選！"
-  },
-  {
-    id: "rec-050",
-    title: "無鹽番茄洋蔥燉牛里肌清爽湯",
-    category: "soups",
-    categoryName: "低卡暖胃湯",
-    calories: 280,
-    protein: 34,
-    fat: 7,
-    carbs: 16,
-    prepTime: 25,
-    difficulty: "簡單",
-    servings: 2,
-    image: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&w=800&q=80",
     source: "愛料理 iCook",
     sourceUrl: "https://icook.tw",
-    tags: ["少鹽", "減鈉", "低糖", "低脂", "增肌", "減脂", "牛里肌", "牛肉", "牛番茄", "洋蔥", "高麗菜", "無鹽燉湯"],
+    tags: ["增肌", "減脂", "低脂", "大燕麥片", "香蕉", "雞蛋", "無糖純可可粉", "微波爐", "無麵粉"],
     ingredients: [
-      { name: "牛里肌肉塊/片", amount: "160g", isMain: true },
-      { name: "成熟牛番茄", amount: "2顆 (切大塊)", isMain: true },
-      { name: "洋蔥", amount: "半顆 (切厚絲)", isMain: true },
-      { name: "高麗菜", amount: "80g (撕塊)", isMain: true },
-      { name: "月桂葉", amount: "1片 (增添西式清香)", isMain: false },
-      { name: "黑胡椒粒", amount: "少許", isMain: false }
+      { name: "熟透香蕉", amount: "半根 (壓泥)", isMain: true },
+      { name: "大燕麥片", amount: "30g", isMain: true },
+      { name: "雞蛋", amount: "1顆", isMain: true },
+      { name: "無糖可可粉", amount: "1小匙", isMain: false },
+      { name: "無糖豆漿", amount: "20ml", isMain: false }
     ],
     steps: [
-      "乾鍋下洋蔥絲小火乾煸至微金黃釋放洋蔥天然糖分。",
-      "加入番茄塊炒軟出紅汁，倒入 500ml 清水與月桂葉大火煮滾。",
-      "轉小火燜煮 12 分鐘讓番茄與洋蔥徹底化在湯中。",
-      "加入高麗菜與牛里肌慢煮 2 分鐘至牛肉變色軟嫩，撒黑胡椒即成濃郁無鹽鮮湯！"
+      "在馬克杯中壓碎香蕉，加入雞蛋、燕麥、可可粉與豆漿攪勻。",
+      "微波爐中高火加熱 90 秒至蛋糕蓬鬆乾爽即可挖著吃。"
     ],
-    tips: "番茄的天然谷氨酸（天然甘味）與洋蔥甜度融合，湯頭甘醇濃厚，不用加鹽就令人驚艷！"
+    tips: "香蕉天然果糖提甜，無油無精緻糖，如同熔岩布朗尼般濃郁！"
   }
 ];
 
@@ -1659,15 +671,23 @@ const POPULAR_INGREDIENTS = [
 // 食材與飲食目標別名對應字典（模糊搜尋拓展）
 const INGREDIENT_SYNONYMS = {
   // 飲食目標關鍵字拓展
-  "增肌": ["增肌", "高蛋白", "牛里肌", "牛排", "牛板腱", "生鮮鮪魚", "三色藜麥", "鷹嘴豆", "雞胸肉", "雞肉", "舒肥雞胸", "鱸魚", "鯛魚", "蝦仁", "毛豆仁"],
-  "減脂": ["減脂", "低卡", "負卡", "蒟蒻", "蒟蒻絲", "白花椰菜米", "花椰菜米", "冬瓜", "金針菇", "小黃瓜", "海帶芽", "絲瓜", "雙菇", "無油"],
-  "低糖": ["低糖", "減醣", "極低碳", "低碳", "無糖", "生酮", "無澱粉", "無麵粉", "花椰菜米", "櫛瓜麵", "生菜包", "蒟蒻絲", "低GI", "燕麥"],
-  "減醣": ["低糖", "減醣", "極低碳", "低碳", "無糖", "生酮", "無澱粉", "無麵粉", "花椰菜米", "櫛瓜麵"],
-  "低脂": ["低脂", "無油", "清蒸", "水煮", "氣炸", "去皮", "雞胸肉", "鯛魚", "鱸魚", "蝦仁", "干貝", "蛤蜊", "嫩豆腐"],
-  "少鹽": ["少鹽", "減鈉", "無鹽", "薄鹽", "清淡", "檸檬汁", "迷迭香", "天然辛香料", "消水腫", "DASH", "冬瓜", "芹菜"],
+  "增肌": ["增肌", "高蛋白", "牛里肌", "牛排", "牛板腱", "生鮮鮪魚", "三色藜麥", "鷹嘴豆", "雞胸肉", "雞肉", "舒肥雞胸", "鱸魚", "鯛魚", "蝦仁", "毛豆仁", "白豆"],
+  "減脂": ["減脂", "低卡", "負卡", "蒟蒻", "蒟蒻絲", "白花椰菜米", "花椰菜米", "冬瓜", "金針菇", "小黃瓜", "海帶芽", "絲瓜", "雙菇", "無油", "球芽甘藍"],
+  "低糖": ["低糖", "減醣", "極低碳", "低碳", "無糖", "生酮", "無澱粉", "無麵粉", "花椰菜米", "櫛瓜麵", "生菜包", "蒟蒻絲", "低GI", "燕麥", "奇亞籽"],
+  "減醣": ["低糖", "減醣", "極低碳", "低碳", "無糖", "生酮", "無澱粉", "無麵粉", "花椰菜米", "櫛瓜麵", "米紙皮"],
+  "低脂": ["低脂", "無油", "清蒸", "水煮", "氣炸", "去皮", "雞胸肉", "鯛魚", "鱸魚", "蝦仁", "干貝", "蛤蜊", "嫩豆腐", "白豆"],
+  "少鹽": ["少鹽", "減鈉", "無鹽", "薄鹽", "清淡", "檸檬汁", "迷迭香", "天然辛香料", "消水腫", "DASH", "冬瓜", "芹菜", "黑橄欖", "第戎芥末醬"],
   "減鈉": ["少鹽", "減鈉", "無鹽", "薄鹽", "消水腫", "高鉀", "冬瓜", "芹菜", "干貝", "檸檬汁", "天然辛香料"],
-  "無油": ["無油", "清蒸", "水煮", "免開火", "氣炸"],
-  "高蛋白": ["增肌", "高蛋白", "雞胸肉", "牛肉", "鮭魚", "鯛魚", "鱸魚", "蝦仁", "雞蛋", "豆腐", "毛豆仁", "鮪魚"],
+  "無油": ["無油", "清蒸", "水煮", "免開火", "氣炸", "生春捲", "涼拌"],
+  "高蛋白": ["增肌", "高蛋白", "雞胸肉", "牛肉", "鮭魚", "鯛魚", "鱸魚", "蝦仁", "雞蛋", "豆腐", "毛豆仁", "鮪魚", "希臘優格", "白豆"],
+
+  // 國外著名料理關鍵字拓展
+  "希臘": ["希臘檸檬香草烤雞佐黃瓜酸奶醬", "無糖希臘優格", "地中海飲食"],
+  "地中海": ["地中海烤海鱸魚佐刺山柑番茄黑橄欖", "希臘檸檬香草烤雞佐黃瓜酸奶醬", "橄欖油", "黑橄欖"],
+  "墨西哥": ["墨西哥青檸彩椒牛排法士達碗", "牛板腱", "彩椒", "酪梨", "孜然"],
+  "法式": ["法式第戎芥末籽慢烤鮭魚佐球芽甘藍", "第戎芥末籽醬"],
+  "西班牙": ["西班牙蒜香紅椒低油白蝦熱鐵板", "煙燻紅椒粉"],
+  "越南": ["越南清爽鮮蝦米紙生春捲", "米紙皮", "生春捲"],
 
   // 食材別名
   "蛋": ["雞蛋", "水煮蛋", "蛋花", "溏心蛋", "炒蛋", "嫩蛋", "太陽蛋", "荷包蛋", "茶碗蒸", "烘蛋"],
@@ -1682,7 +702,7 @@ const INGREDIENT_SYNONYMS = {
   "鱸魚": ["金目鱸魚排", "鱸魚菲力", "鱸魚", "金目鱸魚"],
   "鯖魚": ["青花魚", "薄鹽鯖魚菲力", "鯖魚"],
   "鮪魚": ["生鮮鮪魚排", "鮪魚", "鮪魚排"],
-  "蝦": ["蝦仁", "鮮蝦仁", "白蝦", "生鮮蝦仁", "熟蝦仁", "鮮蝦"],
+  "蝦": ["蝦仁", "鮮蝦仁", "白蝦", "生鮮蝦仁", "熟蝦仁", "鮮蝦", "無毒鮮蝦仁"],
   "蝦仁": ["蝦", "白蝦", "鮮蝦仁", "熟蝦仁", "鮮蝦"],
   "豆腐": ["板豆腐", "嫩豆腐", "老板豆腐", "豆腐丁", "碎豆腐"],
   "花椰菜": ["青花菜", "白花椰菜", "白花椰菜米", "花椰菜米"],
@@ -1691,11 +711,13 @@ const INGREDIENT_SYNONYMS = {
   "地瓜": ["黃地瓜", "地瓜塊", "甘藷", "紫地瓜"],
   "燕麥": ["大燕麥片", "燕麥片", "燕麥"],
   "藜麥": ["三色藜麥", "熟三色藜麥", "藜麥"],
-  "鷹嘴豆": ["熟鷹嘴豆", "鷹嘴豆"],
+  "鷹嘴豆": ["熟鷹嘴豆", "鷹嘴豆", "白豆"],
+  "優格": ["無糖希臘優格", "希臘優格", "優格"],
+  "奇亞籽": ["奇亞籽"],
   "蒟蒻": ["蒟蒻絲", "魔芋絲", "蒟蒻結", "蒟蒻"],
   "瓜": ["櫛瓜", "小黃瓜", "絲瓜", "南瓜", "冬瓜"],
   "貝": ["干貝", "鮮干貝", "蛤蜊", "活蛤蜊"],
-  "菜": ["青花菜", "菠菜", "娃娃菜", "高麗菜", "生菜", "綜合生菜", "美生菜", "芹菜"],
+  "菜": ["青花菜", "菠菜", "娃娃菜", "高麗菜", "生菜", "綜合生菜", "美生菜", "芹菜", "球芽甘藍", "抱子甘藍"],
   "海鮮": ["鮭魚", "鯛魚", "鱸魚", "鯖魚", "蝦仁", "鮮蝦", "白蝦", "蛤蜊", "干貝", "魚排", "生鮮鮭魚菲力", "台灣鯛魚排", "金目鱸魚排", "薄鹽鯖魚菲力", "鮪魚"],
   "辣": ["辣椒", "辣椒粉", "紅辣椒", "泡菜", "韓式辣醬", "花椒", "七味粉", "蒜辣", "泰式", "打拋"],
   "辣椒": ["辣椒粉", "紅辣椒", "辣椒碎", "辣椒圈"],
@@ -1706,5 +728,3 @@ const INGREDIENT_SYNONYMS = {
   "乳製品": ["起司", "起司絲", "摩佐羅拉起司", "無糖希臘優格", "希臘優格", "牛奶", "無鹽奶油"],
   "豬": ["培根", "豬肉", "豬里肌"]
 };
-
-
