@@ -1082,7 +1082,8 @@ function handleAddRecipeSubmit(e) {
     "high-protein": "高蛋白肌力",
     "low-carb": "極低碳減醣",
     "soups": "低卡暖胃湯",
-    "quick-meal": "超快即食"
+    "quick-meal": "超快即食",
+    "drinks-dessert": "減脂點心飲品"
   };
 
   const newRecipe = {
